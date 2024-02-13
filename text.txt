@@ -1,0 +1,15 @@
+ public static void Main(string[] args)
+ {
+     int lengthOfArray = 0;
+     do
+     {
+         Console.WriteLine("Введите натуральную длинну массива");
+     }
+     while (!int.TryParse(Console.ReadLine(), out lengthOfArray) | lengthOfArray < 1);
+     int[] arr = RandomArray(lengthOfArray);
+     Console.WriteLine("Исходный массив:");
+     PrintArray(arr);
+
+     SelectionSort(arr);
+     Console.WriteLine("Отсортированный массив:");
+     PrintArray(arr);  
