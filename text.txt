@@ -13,3 +13,5 @@
      SelectionSort(arr);
      Console.WriteLine("Отсортированный массив:");
      PrintArray(arr);  
+
+okokokok
