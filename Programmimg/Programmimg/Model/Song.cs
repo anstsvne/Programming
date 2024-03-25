@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Programming.Model.Classes;
+using System;
 
 class Song
 {
@@ -53,8 +54,7 @@ class Song
         }
         set
         {
-            if ((value == null) || (value < 0))
-                throw new ArgumentException("Duration cannot be empty or <  0");
+            Validator.AssertOnPositiveValue(value, nameof(DurationSeconds));
             _durationSeconds = value;
         }
     }
@@ -65,4 +65,5 @@ class Song
         _labelName = LabelName;
         _durationSeconds = DurationSeconds;
     }
+    public Song() { }
 }

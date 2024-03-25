@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Programming.Model.Classes;
+using System;
 
 class Time
 {
@@ -13,8 +14,8 @@ class Time
         }
         set
         {
-            if ((value < 0) || (value > 12))
-                throw new ArgumentException("Hour cannot be empty or <  0  and cannot be >12");
+            Validator.AssertValueInRange(value, 0, 23, nameof(Hour));
+            Validator.AssertOnPositiveValue(value, nameof(Hour));
             _hour = value;
         }
     }
@@ -26,8 +27,8 @@ class Time
         }
         set
         {
-            if ((value < 0) || (value > 59))
-                throw new ArgumentException("Minutes cannot be empty or <  0 and cannot be >59");
+            Validator.AssertValueInRange(value, 0, 59, nameof(Minute));
+            Validator.AssertOnPositiveValue(value, nameof(Minute));
             _minute = value;
         }
     }
@@ -39,8 +40,8 @@ class Time
         }
         set
         {
-            if ((value < 0) || (value > 59))
-                throw new ArgumentException("Seconds cannot be empty or <  0 and cannot be >59");
+            Validator.AssertValueInRange(value, 0, 59, nameof(Second));
+            Validator.AssertOnPositiveValue(value, nameof(Second));
             _second = value;
         }
     }
@@ -50,4 +51,5 @@ class Time
         _minute = Minute;
         _second = Second;
     }
+    public Time() { }
 }

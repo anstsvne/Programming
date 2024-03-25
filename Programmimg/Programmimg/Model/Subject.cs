@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Programming.Model.Classes;
+using System;
 
 class Subject
 {
@@ -26,8 +27,7 @@ class Subject
         }
         set
         {
-            if ((value == null) || (value < 0))
-                throw new ArgumentException("Number of lessons cannot be empty or <  0");
+            Validator.AssertOnPositiveValue(value, nameof(NumOfLessonsWeek));
             _numOfLessonsWeek = value;
         }
     }
@@ -50,4 +50,5 @@ class Subject
         _numOfLessonsWeek = NumOfLessonsWeek;
         _teacherName = TeacherName;
     }
+    public Subject() { }
 }

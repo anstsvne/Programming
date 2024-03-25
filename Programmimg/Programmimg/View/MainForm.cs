@@ -32,7 +32,7 @@ namespace Programmimg
             }
             listBoxRectangles.Items.AddRange(rectangle_listboxItems);
             string[] films_listboxItems = new string[5];
-            string[] filmsTitles = new string[5] { "Batman", "Avengers: Final", "The GodFather", "Joker", "Ghostbusters" };
+            string[] filmsTitles = new string[5] { "Pulp Fiction", "Kill Bill", "The Hatefull Eight", "Once Upon a Time in... Holywood", "Inglourious Basterds" };
             for (int i = 0; i < 5; i++)
             {
                 int durationMinutes = random.Next(20, 280);
@@ -156,6 +156,9 @@ namespace Programmimg
             textBoxLenght.Text = _currentRectangle.Length.ToString();
             textBoxWidth.Text = _currentRectangle.Width.ToString();
             textBoxColor.Text = _currentRectangle.Color.ToString();
+            xcentertxtbox.Text = _currentRectangle.Center.coord_X.ToString();
+            ycentertxtbox.Text = _currentRectangle.Center.coord_Y.ToString();
+            idtxtbox.Text = _currentRectangle.ID.ToString();
         }
         private void textBoxWidth_TextChanged(object sender, EventArgs e)
         {
@@ -293,6 +296,36 @@ namespace Programmimg
             double FilmMaxRateIndex = FindFilmMaxRate(_films);
             listBoxMovie.SelectedIndex = (int)FilmMaxRateIndex;
             
+        }
+
+        private void textBoxColor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelLenght_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelWidth_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelColor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }   

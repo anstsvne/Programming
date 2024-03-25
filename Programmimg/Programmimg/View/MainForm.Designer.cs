@@ -60,15 +60,21 @@
             this.textBoxTitle = new System.Windows.Forms.TextBox();
             this.labelTitle = new System.Windows.Forms.Label();
             this.listBoxMovie = new System.Windows.Forms.ListBox();
-            this.textBoxLenght = new System.Windows.Forms.TextBox();
-            this.textBoxColor = new System.Windows.Forms.TextBox();
-            this.textBoxWidth = new System.Windows.Forms.TextBox();
-            this.labelColor = new System.Windows.Forms.Label();
-            this.labelWidth = new System.Windows.Forms.Label();
-            this.labelLenght = new System.Windows.Forms.Label();
             this.listBoxRectangles = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.idtxtbox = new System.Windows.Forms.TextBox();
+            this.idLabel = new System.Windows.Forms.Label();
+            this.ycentertxtbox = new System.Windows.Forms.TextBox();
+            this.YLabel = new System.Windows.Forms.Label();
+            this.textBoxLenght = new System.Windows.Forms.TextBox();
+            this.xcentertxtbox = new System.Windows.Forms.TextBox();
+            this.textBoxColor = new System.Windows.Forms.TextBox();
+            this.textBoxWidth = new System.Windows.Forms.TextBox();
+            this.Xlabel = new System.Windows.Forms.Label();
+            this.labelColor = new System.Windows.Forms.Label();
             this.buttonFind = new System.Windows.Forms.Button();
+            this.labelWidth = new System.Windows.Forms.Label();
+            this.labelLenght = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.GroupBoxSeasonHandle.SuspendLayout();
@@ -288,12 +294,6 @@
             // tabPageClasses
             // 
             this.tabPageClasses.Controls.Add(this.groupBoxMovies);
-            this.tabPageClasses.Controls.Add(this.textBoxLenght);
-            this.tabPageClasses.Controls.Add(this.textBoxColor);
-            this.tabPageClasses.Controls.Add(this.textBoxWidth);
-            this.tabPageClasses.Controls.Add(this.labelColor);
-            this.tabPageClasses.Controls.Add(this.labelWidth);
-            this.tabPageClasses.Controls.Add(this.labelLenght);
             this.tabPageClasses.Controls.Add(this.listBoxRectangles);
             this.tabPageClasses.Controls.Add(this.groupBox1);
             this.tabPageClasses.Location = new System.Drawing.Point(8, 39);
@@ -320,14 +320,14 @@
             this.groupBoxMovies.Controls.Add(this.listBoxMovie);
             this.groupBoxMovies.Location = new System.Drawing.Point(778, 22);
             this.groupBoxMovies.Name = "groupBoxMovies";
-            this.groupBoxMovies.Size = new System.Drawing.Size(695, 710);
+            this.groupBoxMovies.Size = new System.Drawing.Size(695, 787);
             this.groupBoxMovies.TabIndex = 9;
             this.groupBoxMovies.TabStop = false;
             this.groupBoxMovies.Text = "Movies";
             // 
             // buttonFind1
             // 
-            this.buttonFind1.Location = new System.Drawing.Point(447, 625);
+            this.buttonFind1.Location = new System.Drawing.Point(447, 711);
             this.buttonFind1.Name = "buttonFind1";
             this.buttonFind1.Size = new System.Drawing.Size(161, 36);
             this.buttonFind1.TabIndex = 11;
@@ -430,56 +430,6 @@
             this.listBoxMovie.TabIndex = 0;
             this.listBoxMovie.SelectedIndexChanged += new System.EventHandler(this.listBoxMovie_SelectedIndexChanged);
             // 
-            // textBoxLenght
-            // 
-            this.textBoxLenght.Location = new System.Drawing.Point(433, 82);
-            this.textBoxLenght.Name = "textBoxLenght";
-            this.textBoxLenght.Size = new System.Drawing.Size(165, 31);
-            this.textBoxLenght.TabIndex = 6;
-            this.textBoxLenght.TextChanged += new System.EventHandler(this.textBoxLenght_TextChanged);
-            // 
-            // textBoxColor
-            // 
-            this.textBoxColor.Location = new System.Drawing.Point(433, 293);
-            this.textBoxColor.Name = "textBoxColor";
-            this.textBoxColor.Size = new System.Drawing.Size(165, 31);
-            this.textBoxColor.TabIndex = 5;
-            // 
-            // textBoxWidth
-            // 
-            this.textBoxWidth.Location = new System.Drawing.Point(433, 185);
-            this.textBoxWidth.Name = "textBoxWidth";
-            this.textBoxWidth.Size = new System.Drawing.Size(165, 31);
-            this.textBoxWidth.TabIndex = 4;
-            this.textBoxWidth.TextChanged += new System.EventHandler(this.textBoxWidth_TextChanged);
-            // 
-            // labelColor
-            // 
-            this.labelColor.AutoSize = true;
-            this.labelColor.Location = new System.Drawing.Point(428, 265);
-            this.labelColor.Name = "labelColor";
-            this.labelColor.Size = new System.Drawing.Size(63, 25);
-            this.labelColor.TabIndex = 3;
-            this.labelColor.Text = "Color";
-            // 
-            // labelWidth
-            // 
-            this.labelWidth.AutoSize = true;
-            this.labelWidth.Location = new System.Drawing.Point(428, 157);
-            this.labelWidth.Name = "labelWidth";
-            this.labelWidth.Size = new System.Drawing.Size(67, 25);
-            this.labelWidth.TabIndex = 2;
-            this.labelWidth.Text = "Width";
-            // 
-            // labelLenght
-            // 
-            this.labelLenght.AutoSize = true;
-            this.labelLenght.Location = new System.Drawing.Point(428, 54);
-            this.labelLenght.Name = "labelLenght";
-            this.labelLenght.Size = new System.Drawing.Size(78, 25);
-            this.labelLenght.TabIndex = 1;
-            this.labelLenght.Text = "Lenght";
-            // 
             // listBoxRectangles
             // 
             this.listBoxRectangles.FormattingEnabled = true;
@@ -492,23 +442,142 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.idtxtbox);
+            this.groupBox1.Controls.Add(this.idLabel);
+            this.groupBox1.Controls.Add(this.ycentertxtbox);
+            this.groupBox1.Controls.Add(this.YLabel);
+            this.groupBox1.Controls.Add(this.textBoxLenght);
+            this.groupBox1.Controls.Add(this.xcentertxtbox);
+            this.groupBox1.Controls.Add(this.textBoxColor);
+            this.groupBox1.Controls.Add(this.textBoxWidth);
+            this.groupBox1.Controls.Add(this.Xlabel);
+            this.groupBox1.Controls.Add(this.labelColor);
             this.groupBox1.Controls.Add(this.buttonFind);
+            this.groupBox1.Controls.Add(this.labelWidth);
+            this.groupBox1.Controls.Add(this.labelLenght);
             this.groupBox1.Location = new System.Drawing.Point(17, 22);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(662, 710);
+            this.groupBox1.Size = new System.Drawing.Size(662, 787);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Rectangles";
             // 
+            // idtxtbox
+            // 
+            this.idtxtbox.Location = new System.Drawing.Point(416, 71);
+            this.idtxtbox.Name = "idtxtbox";
+            this.idtxtbox.ReadOnly = true;
+            this.idtxtbox.Size = new System.Drawing.Size(165, 31);
+            this.idtxtbox.TabIndex = 10;
+            // 
+            // idLabel
+            // 
+            this.idLabel.AutoSize = true;
+            this.idLabel.Location = new System.Drawing.Point(411, 43);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(35, 25);
+            this.idLabel.TabIndex = 12;
+            this.idLabel.Text = "Id:";
+            // 
+            // ycentertxtbox
+            // 
+            this.ycentertxtbox.Location = new System.Drawing.Point(416, 581);
+            this.ycentertxtbox.Name = "ycentertxtbox";
+            this.ycentertxtbox.ReadOnly = true;
+            this.ycentertxtbox.Size = new System.Drawing.Size(165, 31);
+            this.ycentertxtbox.TabIndex = 10;
+            this.ycentertxtbox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // YLabel
+            // 
+            this.YLabel.AutoSize = true;
+            this.YLabel.Location = new System.Drawing.Point(411, 553);
+            this.YLabel.Name = "YLabel";
+            this.YLabel.Size = new System.Drawing.Size(166, 25);
+            this.YLabel.TabIndex = 11;
+            this.YLabel.Text = "Y-cord of center";
+            // 
+            // textBoxLenght
+            // 
+            this.textBoxLenght.Location = new System.Drawing.Point(416, 163);
+            this.textBoxLenght.Name = "textBoxLenght";
+            this.textBoxLenght.Size = new System.Drawing.Size(165, 31);
+            this.textBoxLenght.TabIndex = 6;
+            this.textBoxLenght.TextChanged += new System.EventHandler(this.textBoxLenght_TextChanged);
+            // 
+            // xcentertxtbox
+            // 
+            this.xcentertxtbox.Location = new System.Drawing.Point(416, 482);
+            this.xcentertxtbox.Name = "xcentertxtbox";
+            this.xcentertxtbox.ReadOnly = true;
+            this.xcentertxtbox.Size = new System.Drawing.Size(165, 31);
+            this.xcentertxtbox.TabIndex = 10;
+            // 
+            // textBoxColor
+            // 
+            this.textBoxColor.Location = new System.Drawing.Point(416, 374);
+            this.textBoxColor.Name = "textBoxColor";
+            this.textBoxColor.Size = new System.Drawing.Size(165, 31);
+            this.textBoxColor.TabIndex = 5;
+            this.textBoxColor.TextChanged += new System.EventHandler(this.textBoxColor_TextChanged);
+            // 
+            // textBoxWidth
+            // 
+            this.textBoxWidth.Location = new System.Drawing.Point(416, 266);
+            this.textBoxWidth.Name = "textBoxWidth";
+            this.textBoxWidth.Size = new System.Drawing.Size(165, 31);
+            this.textBoxWidth.TabIndex = 4;
+            this.textBoxWidth.TextChanged += new System.EventHandler(this.textBoxWidth_TextChanged);
+            // 
+            // Xlabel
+            // 
+            this.Xlabel.AutoSize = true;
+            this.Xlabel.Location = new System.Drawing.Point(411, 454);
+            this.Xlabel.Name = "Xlabel";
+            this.Xlabel.Size = new System.Drawing.Size(165, 25);
+            this.Xlabel.TabIndex = 8;
+            this.Xlabel.Text = "X-cord of center";
+            this.Xlabel.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // labelColor
+            // 
+            this.labelColor.AutoSize = true;
+            this.labelColor.Location = new System.Drawing.Point(411, 346);
+            this.labelColor.Name = "labelColor";
+            this.labelColor.Size = new System.Drawing.Size(63, 25);
+            this.labelColor.TabIndex = 3;
+            this.labelColor.Text = "Color";
+            this.labelColor.Click += new System.EventHandler(this.labelColor_Click);
+            // 
             // buttonFind
             // 
-            this.buttonFind.Location = new System.Drawing.Point(416, 625);
+            this.buttonFind.Location = new System.Drawing.Point(416, 711);
             this.buttonFind.Name = "buttonFind";
             this.buttonFind.Size = new System.Drawing.Size(165, 36);
             this.buttonFind.TabIndex = 7;
             this.buttonFind.Text = "Find";
             this.buttonFind.UseVisualStyleBackColor = true;
             this.buttonFind.Click += new System.EventHandler(this.buttonFind_Click);
+            // 
+            // labelWidth
+            // 
+            this.labelWidth.AutoSize = true;
+            this.labelWidth.Location = new System.Drawing.Point(411, 238);
+            this.labelWidth.Name = "labelWidth";
+            this.labelWidth.Size = new System.Drawing.Size(67, 25);
+            this.labelWidth.TabIndex = 2;
+            this.labelWidth.Text = "Width";
+            this.labelWidth.Click += new System.EventHandler(this.labelWidth_Click);
+            // 
+            // labelLenght
+            // 
+            this.labelLenght.AutoSize = true;
+            this.labelLenght.Location = new System.Drawing.Point(411, 135);
+            this.labelLenght.Name = "labelLenght";
+            this.labelLenght.Size = new System.Drawing.Size(78, 25);
+            this.labelLenght.TabIndex = 1;
+            this.labelLenght.Text = "Lenght";
+            this.labelLenght.Click += new System.EventHandler(this.labelLenght_Click);
             // 
             // MainForm
             // 
@@ -525,10 +594,10 @@
             this.GroupBoxSeasonHandle.ResumeLayout(false);
             this.GroupBoxSeasonHandle.PerformLayout();
             this.tabPageClasses.ResumeLayout(false);
-            this.tabPageClasses.PerformLayout();
             this.groupBoxMovies.ResumeLayout(false);
             this.groupBoxMovies.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -576,6 +645,12 @@
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.ListBox listBoxMovie;
         private System.Windows.Forms.Button buttonFind1;
+        private System.Windows.Forms.Label idLabel;
+        private System.Windows.Forms.TextBox ycentertxtbox;
+        private System.Windows.Forms.Label YLabel;
+        private System.Windows.Forms.TextBox xcentertxtbox;
+        private System.Windows.Forms.Label Xlabel;
+        private System.Windows.Forms.TextBox idtxtbox;
     }
 }
 
