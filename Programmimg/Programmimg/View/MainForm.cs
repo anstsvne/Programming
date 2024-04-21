@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Programmimg
 {
+    //привет
     public partial class MainForm : Form
     {
         Rectangle[] _rectangles = new Rectangle[5];
