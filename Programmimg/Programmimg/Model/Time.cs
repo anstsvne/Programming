@@ -1,11 +1,31 @@
 ﻿using Programming.Model.Classes;
 using System;
 
+/// <summary>
+/// Хранит данные о времени - час, минута, секунда.
+/// </summary>
+
 class Time
 {
+
+    /// <summary>
+    /// Значения поля "час" для каждого экземпляра класса.
+    /// </summary>
     private int _hour;
+
+    /// <summary>
+    /// Значения поля "минута" для каждого экземпляра класса.
+    /// </summary>
     private int _minute;
+
+    /// <summary>
+    /// Значения поля "секунда" для каждого экземпляра класса.
+    /// </summary>
     private int _second;
+
+    /// <summary>
+    /// Возвращает и задаёт значение поля "час". Значение должно быть больше 0, в промежутке от 0 до 23.
+    /// </summary>
     public int Hour
     {
         get
@@ -19,6 +39,10 @@ class Time
             _hour = value;
         }
     }
+
+    /// <summary>
+    /// Возвращает и задаёт значение поля "минута". Значение должно быть больше 0, в промежутке от 0 до 59.
+    /// </summary>
     public int Minute
     {
         get
@@ -32,6 +56,10 @@ class Time
             _minute = value;
         }
     }
+
+    /// <summary>
+    /// Возвращает и задаёт значение поля "секунда". Значение должно быть больше 0, в промежутке от 0 до 59.
+    /// </summary>
     public int Second
     {
         get
@@ -45,6 +73,13 @@ class Time
             _second = value;
         }
     }
+
+    /// <summary>
+    /// Создаёт экземпляр класса <see cref="Time"/>
+    /// </summary>
+    /// <param name="Hour"> Час. Больше 0, в промежутке от 0 до 23. </param>
+    /// <param name="Minute"> Минута. Больше 0, в промежутке от 0 до 59. </param>
+    /// <param name="Second"> Секунда. Больше 0, в промежутке от 0 до 59. </param>
     public Time(int Hour, int Minute, int Second)
     {
         _hour = Hour;

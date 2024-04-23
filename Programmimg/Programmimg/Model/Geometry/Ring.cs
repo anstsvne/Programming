@@ -7,13 +7,31 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
+    /// <summary>
+    /// Хранит данные о кольце - внешний и внутренний радиусы, координаты центра, площадь кольца.
+    /// </summary>
     public class Ring
     {
+
+        /// <summary>
+        /// Значение внешнего радиуса для каждого экземпляра класса.
+        /// </summary>
         private Double _outerRadius;
+
+        /// <summary>
+        /// Значение внутреннего радиуса для каждого экземпляра класса.
+        /// </summary>
         private Double _innerRadius;
-        private Point2D _center;
         private Double _p = 3.14;
+
+        /// <summary>
+        /// Значение координаты X центра кольца для каждого экземпляра класса. 
+        /// </summary>
         private int _centerX;
+
+        /// <summary>
+        /// Значение координаты Y центра кольца для каждого экземпляра класса. 
+        /// </summary>
         private int _centerY;
         Random rand = new Random();
 
@@ -47,10 +65,14 @@ namespace Programming.Model.Classes
             }
         }
 
-
+        /// <summary>
+        /// Возвращает координаты центра в двумерном пространстве.
+        /// </summary>
         public Point2D Center { get; private set; }
 
-
+        /// <summary>
+        /// Возвращает площадь кольца.
+        /// </summary>
         public Double Area
         {
             get => (((_p * (OuterRadius * OuterRadius)) - (_p * (InnerRadius * InnerRadius))));

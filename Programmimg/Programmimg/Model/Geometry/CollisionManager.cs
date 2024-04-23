@@ -8,7 +8,13 @@ namespace Programming.Model.Classes
 {
     public static class CollissionManager
     {
-        private static bool IsCollision(Rectangle rectangle1, Rectangle rectangle2)
+        /// <summary>
+        /// Проверяет пересечение прямоугольников
+        /// </summary>
+        /// <param name="rectangle1"></param>
+        /// <param name="rectangle2"></param>
+        /// <returns></returns>
+        public static bool IsCollision(Rectangle rectangle1, Rectangle rectangle2)
         {
             bool result = false;
 
