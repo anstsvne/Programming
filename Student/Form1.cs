@@ -42,10 +42,10 @@ namespace Student
             // Если выбранный индекс действителен
             if (selectedIndex != -1)
             {
-                // Обновляем текущую песню
+                // Обновляем текущего студента
                 _currentStudent = _students[selectedIndex];
 
-                // Обновляем поля ввода с данными выбранной песни
+                // Обновляем поля ввода с данными выбранным студентом
                 FullNameTextBox.Text = _currentStudent.FullName;
                 GroupTextBox.Text = _currentStudent.Group;
                 FacultyComboBox.Text = _currentStudent.Faculty.ToString();
@@ -54,7 +54,7 @@ namespace Student
             }
             else
             {
-                // Сбрасываем текущую песню, если ничего не выбрано
+                // Сбрасываем текущего студента, если ничего не выбрано
                 _currentStudent = null;
                 FullNameTextBox.Text = string.Empty;
                 GroupTextBox.Text = string.Empty;
@@ -70,7 +70,7 @@ namespace Student
                 FullNameTextBox.BackColor = AppColors.StandartColor;
                 string fullname = FullNameTextBox.Text;
 
-                // Проверяем, инициализирован ли _currentSong
+                // Проверяем, инициализирован ли _currentSudent
                 if (_currentStudent == null)
                 {
                     _currentStudent = new Student();
@@ -78,10 +78,10 @@ namespace Student
                 FullNameLabel.Text = "";
                 _currentStudent.FullName = fullname;
                 SortStudents();
-                // Сохраняем список песен в файл
+                // Сохраняем список студентов в файл
                 SaveStudentList();
 
-                // Отображаем обновленный список песен в ListBox
+                // Отображаем обновленный список студентов в ListBox
                 DisplayStudentList();
 
             }
@@ -99,7 +99,7 @@ namespace Student
                 GroupTextBox.BackColor = AppColors.StandartColor;
                 string group = GroupTextBox.Text;
 
-                // Проверяем, инициализирован ли _currentSong
+                // Проверяем, инициализирован ли _currentStudent
                 if (_currentStudent == null)
                 {
                     _currentStudent = new Student();
@@ -107,10 +107,10 @@ namespace Student
                 FullNameLabel.Text = "";
                 _currentStudent.Group = group;
                 SortStudents();
-                // Сохраняем список песен в файл
+                // Сохраняем список студентов в файл
                 SaveStudentList();
 
-                // Отображаем обновленный список песен в ListBox
+                // Отображаем обновленный список студентов в ListBox
                 DisplayStudentList();
 
             }
@@ -134,7 +134,7 @@ namespace Student
                     FacultyLabel.Text = "";
                     StudentListBox.Items[selectedIndex] = selectedStudent;
 
-                    // Сортируем список песен после изменения данных
+                    // Сортируем список студентов после изменения данных
                     SortStudents();
 
                     SaveStudentList();
@@ -160,7 +160,7 @@ namespace Student
                     EducationFormLabel.Text = "";
                     StudentListBox.Items[selectedIndex] = selectedStudent;
 
-                    // Сортируем список песен после изменения данных
+                    // Сортируем список студентов после изменения данных
                     SortStudents();
 
                     SaveStudentList();
@@ -183,7 +183,7 @@ namespace Student
 
                     foreach (string line in lines)
                     {
-                        // Парсим каждую строку в объект Song и добавляем его в список
+                        // Парсим каждую строку в объект Student и добавляем его в список
                         string[] parts = line.Split(',');
                         Student student = new Student
                         {
@@ -210,7 +210,7 @@ namespace Student
                 {
                     foreach (Student student in _students)
                     {
-                        // Записываем каждую песню в файл в формате "Название песни,Исполнитель,Длительность,Жанр"
+                        // Записываем каждого студента в файл в формате "Полное имя,Номер зачетки,Группа,Факультет,Форма обучения"
                         writer.WriteLine($"{student.FullName},{student.Id},{student.Group},{student.Faculty}, {student.EducationForm}");
                     }
                 }
@@ -222,10 +222,10 @@ namespace Student
         }
         private void SortStudents()
         {
-            // Сортируем список песен
+            // Сортируем список студентов
             var sortedStudents = _students.OrderBy(song => song.FullName).ToList();
 
-            // Очищаем BindingList и добавляем отсортированные песни
+            // Очищаем BindingList и добавляем отсортированных студентов
             _students.Clear();
             foreach (var student in sortedStudents)
             {
@@ -237,7 +237,7 @@ namespace Student
             // Очищаем ListBox перед добавлением обновленных данных
             StudentListBox.Items.Clear();
 
-            // Добавляем каждую песню из списка в ListBox
+            // Добавляем каждого студента из списка в ListBox
             foreach (Student student in _students)
             {
                 StudentListBox.Items.Add($"Full Name: {student.FullName},Group: {student.Group}, Faculty:{student.Faculty}");
@@ -246,15 +246,83 @@ namespace Student
 
         private void AddButton_Click(object sender, EventArgs e)
         {
+            var newStudent = new Student
+            {
+                FullName = FullNameTextBox.Text,
+                Group = GroupTextBox.Text,
+                Id = int.Parse(IdTextBox.Text),
+                Faculty = (Faculty)FacultyComboBox.SelectedItem,
+                EducationForm = (EducationForm)EducationFormComboBox.SelectedItem
+            };
 
+            _students.Add(newStudent);
+            SortStudents();
+            ignoreChanges = true;
+            FullNameTextBox.Clear();
+            GroupTextBox.Clear();
+            IdTextBox.Clear();
+            FacultyComboBox.SelectedIndex = -1;
+            EducationFormComboBox.SelectedIndex = -1;
+            ignoreChanges = false;
+            FullNameLabel.Text = "";
+            GroupLabel.Text = "";
+            IdLabel.Text = "";
+            FacultyLabel.Text = "";
+            EducationFormLabel.Text = "";
+            StudentListBox.ClearSelected();
+
+            SaveStudentList();
+
+            // Отображаем обновленный список студентов в ListBox
+            DisplayStudentList();
+
+            // Очищаем поля ввода после добавления студента
+            ClearInputFields();
         }
+        /// <summary>
+        /// Осуществляет удаление объекта класса Student.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+    }
 
-        private void DeleteButton_Click(object sender, EventArgs e)
+    private void DeleteButton_Click(object sender, EventArgs e)
         {
+        int selectedIndex = SongsListBox.SelectedIndex;
+        // Проверяем, выбран ли какой-либо элемент в ListBox
+        if (selectedIndex != -1)
+        {
+            // Получаем индекс выбранной песни
 
+
+            // Удаляем песню из списка
+            _songs.RemoveAt(selectedIndex);
+            SortSongs();
+            // Сохраняем список песен в файл
+            SaveSongList();
+
+            // Отображаем обновленный список песен в ListBox
+            DisplaySongList();
+
+            ClearInputFields();
+            SongNameErrorlabel.Text = "";
+            ArtistNameErrorlabel.Text = "";
+            DurationErrorlabel.Text = "";
+            GenreErrorlabel.Text = "";
         }
+        else
+        {
+            MessageBox.Show("Выберите песню для удаления.");
+        }
+    }
+    /// <summary>
+    /// Осуществляет очищение значений из TextBox и ComboBox.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>A
+}
 
-        private void ClearSelectedButton_Click(object sender, EventArgs e)
+private void ClearSelectedButton_Click(object sender, EventArgs e)
         {
 
         }
