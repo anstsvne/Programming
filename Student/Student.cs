@@ -41,7 +41,7 @@ namespace Student
             set
             {
                 int strLength = value.Length;
-                Validator.AssertValueLength(strLength, 1, 50, nameof(FullName));
+                Validator.AssertValueLength(strLength, 1, 200, nameof(FullName));
                 _fullName = value;
             }
         }
@@ -57,7 +57,7 @@ namespace Student
             set
             {
                 int strLength = value.Length;
-                Validator.AssertValueLength(strLength, 1, 50, nameof(Group));
+                Validator.AssertValueLength(strLength, 1, 10, nameof(Group));
                 _group = value;
             }
         }

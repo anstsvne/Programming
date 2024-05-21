@@ -30,21 +30,21 @@
         {
             this.StudentListBox = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.FullNameTextBox = new System.Windows.Forms.TextBox();
-            this.FullNameLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.IdTextBox = new System.Windows.Forms.TextBox();
-            this.IdLabel = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.GroupTextBox = new System.Windows.Forms.TextBox();
-            this.GroupLabel = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.FacultyComboBox = new System.Windows.Forms.ComboBox();
-            this.EducationFormComboBox = new System.Windows.Forms.ComboBox();
-            this.FacultyLabel = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.EducationFormLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.FacultyLabel = new System.Windows.Forms.Label();
+            this.EducationFormComboBox = new System.Windows.Forms.ComboBox();
+            this.FacultyComboBox = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.GroupLabel = new System.Windows.Forms.Label();
+            this.GroupTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.IdLabel = new System.Windows.Forms.Label();
+            this.IdTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.FullNameLabel = new System.Windows.Forms.Label();
+            this.FullNameTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.AddButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.ClearSelectedButton = new System.Windows.Forms.Button();
@@ -59,6 +59,7 @@
             this.StudentListBox.Name = "StudentListBox";
             this.StudentListBox.Size = new System.Drawing.Size(673, 754);
             this.StudentListBox.TabIndex = 0;
+            this.StudentListBox.SelectedIndexChanged += new System.EventHandler(this.StudentListBox_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -84,122 +85,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // label1
+            // EducationFormLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(30, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Ф.И.О.";
-            // 
-            // FullNameTextBox
-            // 
-            this.FullNameTextBox.Location = new System.Drawing.Point(169, 50);
-            this.FullNameTextBox.Name = "FullNameTextBox";
-            this.FullNameTextBox.Size = new System.Drawing.Size(674, 31);
-            this.FullNameTextBox.TabIndex = 1;
-            // 
-            // FullNameLabel
-            // 
-            this.FullNameLabel.AutoSize = true;
-            this.FullNameLabel.ForeColor = System.Drawing.Color.Red;
-            this.FullNameLabel.Location = new System.Drawing.Point(31, 105);
-            this.FullNameLabel.Name = "FullNameLabel";
-            this.FullNameLabel.Size = new System.Drawing.Size(70, 25);
-            this.FullNameLabel.TabIndex = 2;
-            this.FullNameLabel.Text = "label2";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(31, 161);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(219, 33);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Номер зачетки";
-            // 
-            // IdTextBox
-            // 
-            this.IdTextBox.Location = new System.Drawing.Point(279, 161);
-            this.IdTextBox.Name = "IdTextBox";
-            this.IdTextBox.Size = new System.Drawing.Size(564, 31);
-            this.IdTextBox.TabIndex = 4;
-            // 
-            // IdLabel
-            // 
-            this.IdLabel.AutoSize = true;
-            this.IdLabel.ForeColor = System.Drawing.Color.Red;
-            this.IdLabel.Location = new System.Drawing.Point(32, 218);
-            this.IdLabel.Name = "IdLabel";
-            this.IdLabel.Size = new System.Drawing.Size(70, 25);
-            this.IdLabel.TabIndex = 5;
-            this.IdLabel.Text = "label3";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(32, 279);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 33);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Группа";
-            // 
-            // GroupTextBox
-            // 
-            this.GroupTextBox.Location = new System.Drawing.Point(169, 279);
-            this.GroupTextBox.Name = "GroupTextBox";
-            this.GroupTextBox.Size = new System.Drawing.Size(674, 31);
-            this.GroupTextBox.TabIndex = 7;
-            // 
-            // GroupLabel
-            // 
-            this.GroupLabel.AutoSize = true;
-            this.GroupLabel.ForeColor = System.Drawing.Color.Red;
-            this.GroupLabel.Location = new System.Drawing.Point(33, 340);
-            this.GroupLabel.Name = "GroupLabel";
-            this.GroupLabel.Size = new System.Drawing.Size(70, 25);
-            this.GroupLabel.TabIndex = 8;
-            this.GroupLabel.Text = "label4";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(30, 399);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(160, 33);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Факультет";
-            // 
-            // FacultyComboBox
-            // 
-            this.FacultyComboBox.FormattingEnabled = true;
-            this.FacultyComboBox.Location = new System.Drawing.Point(226, 399);
-            this.FacultyComboBox.Name = "FacultyComboBox";
-            this.FacultyComboBox.Size = new System.Drawing.Size(617, 33);
-            this.FacultyComboBox.TabIndex = 10;
-            // 
-            // EducationFormComboBox
-            // 
-            this.EducationFormComboBox.FormattingEnabled = true;
-            this.EducationFormComboBox.Location = new System.Drawing.Point(299, 532);
-            this.EducationFormComboBox.Name = "EducationFormComboBox";
-            this.EducationFormComboBox.Size = new System.Drawing.Size(544, 33);
-            this.EducationFormComboBox.TabIndex = 11;
-            // 
-            // FacultyLabel
-            // 
-            this.FacultyLabel.AutoSize = true;
-            this.FacultyLabel.ForeColor = System.Drawing.Color.Red;
-            this.FacultyLabel.Location = new System.Drawing.Point(31, 463);
-            this.FacultyLabel.Name = "FacultyLabel";
-            this.FacultyLabel.Size = new System.Drawing.Size(70, 25);
-            this.FacultyLabel.TabIndex = 12;
-            this.FacultyLabel.Text = "label5";
+            this.EducationFormLabel.AutoSize = true;
+            this.EducationFormLabel.ForeColor = System.Drawing.Color.Red;
+            this.EducationFormLabel.Location = new System.Drawing.Point(33, 599);
+            this.EducationFormLabel.Name = "EducationFormLabel";
+            this.EducationFormLabel.Size = new System.Drawing.Size(70, 25);
+            this.EducationFormLabel.TabIndex = 14;
+            this.EducationFormLabel.Text = "label6";
             // 
             // label5
             // 
@@ -211,15 +105,126 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Форма обучения";
             // 
-            // EducationFormLabel
+            // FacultyLabel
             // 
-            this.EducationFormLabel.AutoSize = true;
-            this.EducationFormLabel.ForeColor = System.Drawing.Color.Red;
-            this.EducationFormLabel.Location = new System.Drawing.Point(33, 599);
-            this.EducationFormLabel.Name = "EducationFormLabel";
-            this.EducationFormLabel.Size = new System.Drawing.Size(70, 25);
-            this.EducationFormLabel.TabIndex = 14;
-            this.EducationFormLabel.Text = "label6";
+            this.FacultyLabel.AutoSize = true;
+            this.FacultyLabel.ForeColor = System.Drawing.Color.Red;
+            this.FacultyLabel.Location = new System.Drawing.Point(31, 463);
+            this.FacultyLabel.Name = "FacultyLabel";
+            this.FacultyLabel.Size = new System.Drawing.Size(70, 25);
+            this.FacultyLabel.TabIndex = 12;
+            this.FacultyLabel.Text = "label5";
+            // 
+            // EducationFormComboBox
+            // 
+            this.EducationFormComboBox.FormattingEnabled = true;
+            this.EducationFormComboBox.Location = new System.Drawing.Point(299, 532);
+            this.EducationFormComboBox.Name = "EducationFormComboBox";
+            this.EducationFormComboBox.Size = new System.Drawing.Size(544, 33);
+            this.EducationFormComboBox.TabIndex = 11;
+            this.EducationFormComboBox.SelectedIndexChanged += new System.EventHandler(this.EducationFormComboBox_SelectedIndexChanged);
+            // 
+            // FacultyComboBox
+            // 
+            this.FacultyComboBox.FormattingEnabled = true;
+            this.FacultyComboBox.Location = new System.Drawing.Point(226, 399);
+            this.FacultyComboBox.Name = "FacultyComboBox";
+            this.FacultyComboBox.Size = new System.Drawing.Size(617, 33);
+            this.FacultyComboBox.TabIndex = 10;
+            this.FacultyComboBox.SelectedIndexChanged += new System.EventHandler(this.FacultyComboBox_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(30, 399);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(160, 33);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Факультет";
+            // 
+            // GroupLabel
+            // 
+            this.GroupLabel.AutoSize = true;
+            this.GroupLabel.ForeColor = System.Drawing.Color.Red;
+            this.GroupLabel.Location = new System.Drawing.Point(33, 340);
+            this.GroupLabel.Name = "GroupLabel";
+            this.GroupLabel.Size = new System.Drawing.Size(70, 25);
+            this.GroupLabel.TabIndex = 8;
+            this.GroupLabel.Text = "label4";
+            // 
+            // GroupTextBox
+            // 
+            this.GroupTextBox.Location = new System.Drawing.Point(169, 279);
+            this.GroupTextBox.Name = "GroupTextBox";
+            this.GroupTextBox.Size = new System.Drawing.Size(674, 31);
+            this.GroupTextBox.TabIndex = 7;
+            this.GroupTextBox.TextChanged += new System.EventHandler(this.GroupTextBox_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(32, 279);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 33);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Группа";
+            // 
+            // IdLabel
+            // 
+            this.IdLabel.AutoSize = true;
+            this.IdLabel.ForeColor = System.Drawing.Color.Red;
+            this.IdLabel.Location = new System.Drawing.Point(32, 218);
+            this.IdLabel.Name = "IdLabel";
+            this.IdLabel.Size = new System.Drawing.Size(70, 25);
+            this.IdLabel.TabIndex = 5;
+            this.IdLabel.Text = "label3";
+            // 
+            // IdTextBox
+            // 
+            this.IdTextBox.Location = new System.Drawing.Point(279, 161);
+            this.IdTextBox.Name = "IdTextBox";
+            this.IdTextBox.Size = new System.Drawing.Size(564, 31);
+            this.IdTextBox.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(31, 161);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(219, 33);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Номер зачетки";
+            // 
+            // FullNameLabel
+            // 
+            this.FullNameLabel.AutoSize = true;
+            this.FullNameLabel.ForeColor = System.Drawing.Color.Red;
+            this.FullNameLabel.Location = new System.Drawing.Point(31, 105);
+            this.FullNameLabel.Name = "FullNameLabel";
+            this.FullNameLabel.Size = new System.Drawing.Size(70, 25);
+            this.FullNameLabel.TabIndex = 2;
+            this.FullNameLabel.Text = "label2";
+            // 
+            // FullNameTextBox
+            // 
+            this.FullNameTextBox.Location = new System.Drawing.Point(169, 50);
+            this.FullNameTextBox.Name = "FullNameTextBox";
+            this.FullNameTextBox.Size = new System.Drawing.Size(674, 31);
+            this.FullNameTextBox.TabIndex = 1;
+            this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(30, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 33);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Ф.И.О.";
             // 
             // AddButton
             // 
@@ -229,6 +234,7 @@
             this.AddButton.TabIndex = 2;
             this.AddButton.Text = "Add";
             this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // DeleteButton
             // 
@@ -238,6 +244,7 @@
             this.DeleteButton.TabIndex = 3;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // ClearSelectedButton
             // 
@@ -247,6 +254,7 @@
             this.ClearSelectedButton.TabIndex = 4;
             this.ClearSelectedButton.Text = "Clear Selected";
             this.ClearSelectedButton.UseVisualStyleBackColor = true;
+            this.ClearSelectedButton.Click += new System.EventHandler(this.ClearSelectedButton_Click);
             // 
             // Form1
             // 
