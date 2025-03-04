@@ -1,124 +1,129 @@
 ﻿using System;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
-/// <summary>
-/// Хранит данные о человеке и его контактных данных.
-/// </summary>
-class Contact
+namespace Programming.Model
 {
     /// <summary>
-    /// Имя для всех объектов класса
+    /// Хранит данные о контактных данных человека.
     /// </summary>
-    private string _name;
-
-    /// <summary>
-    /// Фамилия для всех объектов класса
-    /// </summary>
-    private string _surname;
-
-    /// <summary>
-    /// Номер телефона для всех объектов класса
-    /// </summary>
-    private string _phoneNum;
-
-    /// <summary>
-    /// Электронная почта для всех объектов класса
-    /// </summary>
-    private string _email;
-
-    /// <summary>
-    /// Проверяет, состоит ли строка только из символов
-    /// </summary>
-    /// <param name="value"> Проверяемая строка </param>
-    /// <param name="propertyName"> Имя свойства, которое подлежит проверке. </param>
-    /// <exception cref="ArgumentException"> Ошибка, появляющаяся если строка не отвечает свойствам поля </exception>
-    private void AssertStringContainsOnlyLetters(string value, string propertyName)
+    internal class Contact
     {
-        foreach (char c in value)
+        /// <summary>
+        /// Имя для всех объектов класса.
+        /// </summary>
+        private string _name;
+        /// <summary>
+        /// Фамилия для всех объектов класса.
+        /// </summary>
+        private string _surname;
+        /// <summary>
+        /// Номер телефона для всех объектов класса.
+        /// </summary>
+        private string _phoneNumber;
+        /// <summary>
+        /// Дополнительная информация для всех объектов класса.
+        /// </summary>
+        private string _extraInformation;
+        /// <summary>
+        /// Английский алфавит для дальнейшей валидации.
+        /// </summary>
+        private string englishLetters = "qwertyuiopasdfghjklzxcvbnm";
+        /// <summary>
+        /// Проверяет, состоит ли строка только из символов.
+        /// </summary>
+        /// <param name="value">Проверяемая строка.</param>
+        /// <returns>Возвращает наличие символа, отличного от английского алфавита.</returns>
+        private bool AssertStringContainOnlyLetters(string value)
         {
-            if (!char.IsLetter(c))
+            value = value.ToLower();
+            foreach (char c in value)
             {
-                throw new ArgumentException($"The value \"{value}\" is invalid for property \"{propertyName}\". It contains non-alphabetic characters.");
+                if (!englishLetters.Contains(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        /// <summary>
+        /// Возвращает и задает имя человека. Должжно содержать только английские буквы.
+        /// </summary>
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (!AssertStringContainOnlyLetters(value))
+                {
+                    throw new ArgumentException("Name must contain only English letters");
+                }
+                _name = value;
             }
         }
-    }
+        /// <summary>
+        /// Возвращает и задает фамилию человека. Должна содержать только английские буквы.
+        /// </summary>
+        public string Surname
+        { 
+            get { return _surname; }
+            set
+            {
+                if (!AssertStringContainOnlyLetters(value))
+                {
+                    throw new ArgumentException("Surname must contain only English letters");
+                }
+                _surname = value;
+            }
+        }
+        /// <summary>
+        /// Возвращает и задает номер телефона. Должен содержать только цифры.
+        /// </summary>
+        public string PhoneNumber
+        {
+            get { return _phoneNumber; }
+            set
+            {
+                bool flag = false;
+                foreach(char c in value)
+                {
+                    if (char.IsLetter(c))
+                    {
+                        flag = true;
+                    }
+                }
 
-    /// <summary>
-    /// Возвращает и задает имя человека. Должна содержать только буквы.
-    /// </summary>
-    public string Name
-        {
-        get
-        {
-            return _name;
+                if (string.IsNullOrEmpty (value) || value.Length != 11 || flag)
+                {
+                    throw new ArgumentException("Phone number must contain 11 numbers");
+                }
+                _phoneNumber = value;
+            }
         }
-        set
+        /// <summary>
+        /// Возвращает и задает дополнительную информацию.
+        /// </summary>
+        private string ExtraInformation { get; set; }
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Contact"/>
+        /// </summary>
+        /// <param name="name">Имя. Должно состоять только из английских букв.</param>
+        /// <param name="surname">Фамилия. Должна состоять только из английских букв.</param>
+        /// <param name="phoneNumber">Номер телефона. Должен состоять только из цифр.</param>
+        /// <param name="extraInformation">Дополнительная информация.</param>
+        public Contact(string name, string surname, string phoneNumber, string extraInformation)
         {
-            AssertStringContainsOnlyLetters(value, nameof(Name));
-            _name = value;
+            Name = name;
+            Surname = surname;
+            PhoneNumber = phoneNumber;
+            ExtraInformation = extraInformation;
         }
-    }
+        public Contact()
+        {
 
-    /// <summary>
-    /// Возвращает и задает фамилию человека. Должна содержать только буквы.
-    /// </summary>
-    public string Surname
-    {
-        get { return _surname; }
-        set
-        {
-            AssertStringContainsOnlyLetters(value, nameof(Surname));
-            _surname = value;
         }
     }
-
-    /// <summary>
-    /// Возвращает и задает номер телефона человека.
-    /// </summary>
-    public string PhoneNum
-    {
-        get
-        {
-            return _phoneNum;
-        }
-        set
-        {
-            if (string.IsNullOrWhiteSpace(value))
-                throw new ArgumentException("Phone number cannot be empty or null");
-            _phoneNum = value;
-        }
-    }
-
-    /// <summary>
-    /// Возвращает и задает электронную почту человека.
-    /// </summary>
-    public string Email
-    {
-        get
-        {
-            return _email;
-        }
-        set
-        {
-            if (string.IsNullOrWhiteSpace(value))
-                throw new ArgumentException("Email cannot be empty or null");
-            _email = value;
-        }
-    }
-
-    /// <summary>
-    /// Создает экземлпяр класса <see cref="Contact"/>
-    /// </summary>
-    /// <param name="Name"> Имя. Должно состоять только из букв. </param>
-    /// <param name="surname"> Фамилия. Должна состоять только из букв. </param>
-    /// <param name="PhoneNumber"> Номер телефона </param>
-    /// <param name="Email"> Электронная почта </param>
-    public Contact(string Name, string surname, string PhoneNumber, string Email)
-    {
-        _name = Name;
-        Surname = surname;
-        _phoneNum = PhoneNumber;
-        _email = Email;
-    }
-    public Contact() { }
 }
