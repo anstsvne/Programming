@@ -1,27 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+
+using Programming.Model;
+using System.Globalization;
+using Rectangle = Programming.Model.Rectangle;
+using Movie = Programming.Model.Movie;
+using Programming.Model.Enums;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Programming.Model.Classes;
+using System.Drawing.Text;
 using Programming.Model.Geometry;
 
-namespace Programmimg
+namespace Programming
 {
-    //привет
     public partial class MainForm : Form
     {
-
         public MainForm()
         {
             InitializeComponent();
-            
-            
         }
-                           
     }
-}   
+}
