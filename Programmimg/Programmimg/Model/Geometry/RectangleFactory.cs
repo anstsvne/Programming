@@ -1,52 +1,40 @@
-﻿
-using System;
+
+﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Programming.Model.Geometry
 {
-
     /// <summary>
-    /// Хранит методы для создания прямоугольников со случайными значениями.
+    /// Хранит метод генерации прямоугольника.
     /// </summary>
-    static class RectangleFactory
+    internal static class RectangleFactory
     {
-        static Random random = new Random();
-        static Colour colour;
-        static string _rectColour;
-
         /// <summary>
-        /// Создает экземпляр прмоугольника со случайными значениями.
+        /// Генерирует прямоугольник.
         /// </summary>
-        /// <returns></returns>
-        public static Rectangle Randomize()
+        /// <returns>Прямоугольник со всеми данными.</returns>
+        static public Rectangle Randomize()
         {
-            //Получаем случайные значения длины и ширины.
-            int recLength = random.Next(20, 200);
-            int recWide = random.Next(20, 200);
+            Random random = new Random();
+            //Список цветов.
+            string[] colours = new string[] { "white", "red", "blue", "purple", "green" };
 
-            //Присваиваем случайное значение цвета из перечисления Colour.
-            int randomIndex = ChooseRandomEnumIndex(colour);
-            colour = (Colour)randomIndex;
-            _rectColour = colour.ToString();
+            //Генерируют длину и ширину в интервале от 1 до 100.
+            int length = random.Next(1, 100);
+            int width = random.Next(1, 100);
 
-            Rectangle rect = new Rectangle(recWide, recLength, Colour.Green);
-            return rect;
-        }
-        /// <summary>
-        /// Выбирает случайный индекс из переданного перечисления.
-        /// </summary>
-        /// <param name="myEnum"></param>
-        /// <returns></returns>
-        public static int ChooseRandomEnumIndex(Enum myEnum)
-        {
-            Random rand = new Random();
-            Array values = Enum.GetValues(myEnum.GetType());
-            return rand.Next(0, values.Length);
+            //Генерация случайного цвета.
+            int selectedColour = random.Next(colours.Length);
+
+            //Генерация координат.
+            int centerX = random.Next(1, 350);
+            int centerY = random.Next(1, 350);
+
+            Rectangle rectangle = new Rectangle(length, width, colours[selectedColour], new Point2D(centerX, centerY));
+            return rectangle;
         }
     }
 }
