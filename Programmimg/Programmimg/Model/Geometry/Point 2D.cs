@@ -1,72 +1,40 @@
-﻿
-using System;
+
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Programming.Model.Classes;
 
-namespace Programming.Model.Classes
+namespace Programming.Model
 {
-
     /// <summary>
-    /// Хранит данные о координатах в двумерном пространстве.
+    /// Хранит данные о координатах.
     /// </summary>
-    public class Point2D
+    internal class Point2D
     {
-
         /// <summary>
-        /// Координата X для каждого экземпляра класса.
+        /// Возвращает и задает координату X.
         /// </summary>
-        private int _x;
-
+        public int X { get; set; }
         /// <summary>
-        /// Координата Y для каждого экземпляра класса.
+        /// Возвращает и задает координату Y.
         /// </summary>
-        private int _y;
-
+        public int Y { get; set; }
         /// <summary>
-        /// Возвращает и задаёт значение координаты X. Значение должно быть больше 0.
+        /// Создает экземпляр класса <see cref="Point2D"/>
         /// </summary>
-        public int coord_X
-        {
-            get
-            {
-                return _x;
-            }
-            private set
-            {
-                Validator.AssertOnPositiveValue(value, nameof(coord_X));
-                _x = value;
-            }
-
-        }
-
-        /// <summary>
-        /// Возвращает и задаёт значение координаты Y. Значение должно быть больше 0.
-        /// </summary>
-        public int coord_Y
-        {
-            get
-            {
-                return _y;
-            }
-            private set
-            {
-                Validator.AssertOnPositiveValue(value, nameof(coord_Y));
-                _y = value;
-            }
-        }
-
-        /// <summary>
-        /// Создаёт экземпляр класса <see cref="Point2D"/>.
-        /// </summary>
-        /// <param name="x">Координата X. Должна быть больше 0.</param>
-        /// <param name="y">Координата Y. Должна быть больше 0.</param>
+        /// <param name="x">Координата X. Не может быть отрицательной.</param>
+        /// <param name="y">Координата Y. Не может быть отрицательной.</param>
+        /// <exception cref="ArgumentException">Выдает ошибку, если одна из координат отрицательная.</exception>
         public Point2D(int x, int y)
         {
-            _x = x;
-            _y = y;
+            if (x < 0 || y < 0)
+            {
+                throw new ArgumentException("Value must be positive");
+            }
+            X = x;
+            Y = y;
         }
+        public Point2D () {}
     }
 }
