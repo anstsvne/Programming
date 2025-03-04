@@ -1,90 +1,88 @@
-﻿using Programming.Model.Classes;
-using System;
 
-/// <summary>
-/// Хранит данные о времени - час, минута, секунда.
-/// </summary>
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-class Time
+namespace Programming.Model
 {
-
     /// <summary>
-    /// Значения поля "час" для каждого экземпляра класса.
+    /// Хранит данные о песне.
     /// </summary>
-    private int _hour;
-
-    /// <summary>
-    /// Значения поля "минута" для каждого экземпляра класса.
-    /// </summary>
-    private int _minute;
-
-    /// <summary>
-    /// Значения поля "секунда" для каждого экземпляра класса.
-    /// </summary>
-    private int _second;
-
-    /// <summary>
-    /// Возвращает и задаёт значение поля "час". Значение должно быть больше 0, в промежутке от 0 до 23.
-    /// </summary>
-    public int Hour
+    internal class Song
     {
-        get
+        /// <summary>
+        /// Название песни.
+        /// </summary>
+        private string _nameSong;
+        /// <summary>
+        /// Псевдоним исполнителя.
+        /// </summary>
+        private string _artist;
+        /// <summary>
+        /// Длительность песни (в секундах).
+        /// </summary>
+        private int _durationSong;
+        /// <summary>
+        /// Возвращает и задает длительность песни в секундах. Не может быть отрицательным.
+        /// </summary>
+        public int DurationSong
         {
-            return _hour;
+            get { return _durationSong; }
+            set
+            {
+                if (Validator.AssertOnPositiveValue(value))
+                {
+                    _durationSong = value;
+                }
+            }
         }
-        set
+        /// <summary>
+        /// Возвращает и задает название песни. Не может быть пустым.
+        /// </summary>
+        private string NameSong
         {
-            Validator.AssertValueInRange(value, 0, 23, nameof(Hour));
-            Validator.AssertOnPositiveValue(value, nameof(Hour));
-            _hour = value;
+            get { return _nameSong; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Value can not be empty");
+                }
+                _nameSong = value;
+            }
+        }
+        /// <summary>
+        /// Возвращает и задает псевдоним исполнителя. Не может быть отрицательным.
+        /// </summary>
+        private string Artist
+        {
+            get { return _artist; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Value can not be empty");
+                }
+                _artist = value;
+            }
+        }
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Song"/>
+        /// </summary>
+        /// <param name="nameSong">Название песни. Не может быть пустым.</param>
+        /// <param name="nameArtist">Псевдоним исполнителя. Не может быть пустым.</param>
+        /// <param name="durationSong">Длительность песни. Не может быть отрицательным.</param>
+        public Song(string nameSong, string nameArtist, int durationSong)
+        {
+            NameSong = nameSong;
+            Artist = nameArtist;
+            DurationSong = durationSong;
+        }
+        public Song()
+        {
+
         }
     }
-
-    /// <summary>
-    /// Возвращает и задаёт значение поля "минута". Значение должно быть больше 0, в промежутке от 0 до 59.
-    /// </summary>
-    public int Minute
-    {
-        get
-        {
-            return _minute;
-        }
-        set
-        {
-            Validator.AssertValueInRange(value, 0, 59, nameof(Minute));
-            Validator.AssertOnPositiveValue(value, nameof(Minute));
-            _minute = value;
-        }
-    }
-
-    /// <summary>
-    /// Возвращает и задаёт значение поля "секунда". Значение должно быть больше 0, в промежутке от 0 до 59.
-    /// </summary>
-    public int Second
-    {
-        get
-        {
-            return _second;
-        }
-        set
-        {
-            Validator.AssertValueInRange(value, 0, 59, nameof(Second));
-            Validator.AssertOnPositiveValue(value, nameof(Second));
-            _second = value;
-        }
-    }
-
-    /// <summary>
-    /// Создаёт экземпляр класса <see cref="Time"/>
-    /// </summary>
-    /// <param name="Hour"> Час. Больше 0, в промежутке от 0 до 23. </param>
-    /// <param name="Minute"> Минута. Больше 0, в промежутке от 0 до 59. </param>
-    /// <param name="Second"> Секунда. Больше 0, в промежутке от 0 до 59. </param>
-    public Time(int Hour, int Minute, int Second)
-    {
-        _hour = Hour;
-        _minute = Minute;
-        _second = Second;
-    }
-    public Time() { }
 }
