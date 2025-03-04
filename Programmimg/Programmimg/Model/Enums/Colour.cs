@@ -1,13 +1,24 @@
-﻿/// <summary>
-/// Хранит список цветов.
-/// </summary>
-public enum Colour
+
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Programming.Model.Enums
 {
-    Red,
-    Orange,
-    Yellow,
-    Green,
-    Blue,
-    Indigo,
-    Violet
+    /// <summary>
+    /// Хранит список цветов.
+    /// </summary>
+    public enum Colours
+    {
+        Blue,
+        Green,
+        Yellow,
+        Black,
+        White,
+        Red,
+        Purple,
+        Orange
+    }
 }
