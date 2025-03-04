@@ -1,46 +1,31 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Drawing;
 
-namespace Programming.Model.Classes
+namespace Programming.Model
 {
     /// <summary>
-    /// Хранит цвета, использумые в приложении.
+    /// Хранит данные о цветах.
     /// </summary>
     public static class AppColors
     {
         /// <summary>
-        /// Цвет для отображения корректных значений.
+        /// Цвет для правильного значения в TextBox.
         /// </summary>
-        public static readonly Color ValidColor = Color.LightGreen;
+        public static readonly Color ValidatorTrueColor = Color.White;
         /// <summary>
-        /// Цвет для отображения пересечения прямоугольников.
+        /// Цвет для некорректного значения в TextBox.
         /// </summary>
-        public static readonly Color ColissionColor = Color.Red;
+        public static readonly Color ValidatorFalseColor = Color.LightPink;
         /// <summary>
-        /// Цвет для отображения некорректных значений.
+        /// Цвет для отображения пересечения.
         /// </summary>
-        public static readonly Color InvalidColor = Color.LightPink;
+        public static readonly Color CollisionTrue = Color.FromArgb(127, 255, 127, 127);
         /// <summary>
-        /// Цвет для стандартного отображения значений.
+        /// Цвет для отображения непересечения.
         /// </summary>
-        public static readonly Color StandartColor = Color.White;
-        /// <summary>
-        /// Цвет для работы SeasonHandle при значении "Winter"
-        /// </summary>
-        public static readonly Color WinterColor = Color.AliceBlue;
-        /// <summary>
-        /// Цвет для работы SeasonHandle при значении "Spring"
-        /// </summary>
-        public static readonly Color SpringColor = Color.Green;
-        /// <summary>
-        /// Цвет для работы SeasonHandle при значении "Autumn"
-        /// </summary>
-        public static readonly Color AutumnColor = Color.SandyBrown;
-
+        public static readonly Color CollisionFalse = Color.FromArgb(127, 127, 255, 127);
     }
 }
