@@ -1,16 +1,17 @@
-﻿namespace Programmimg.View.Panels
+
+﻿namespace Programming.View.Panels
 {
-    partial class WeekdaysControl
+    partial class WeekdayParsingControls
     {
         /// <summary> 
-        /// Обязательная переменная конструктора.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Освободить все используемые ресурсы.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,92 +21,87 @@
             base.Dispose(disposing);
         }
 
-        #region Код, автоматически созданный конструктором компонентов
+        #region Component Designer generated code
 
         /// <summary> 
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.ParsedValueLabel = new System.Windows.Forms.Label();
-            this.ParseButtonClick = new System.Windows.Forms.Button();
-            this.ParsingTextBox = new System.Windows.Forms.TextBox();
-            this.TypeLabel = new System.Windows.Forms.Label();
-            this.WeekdayGroupBox = new System.Windows.Forms.GroupBox();
-            this.SuspendLayout();
+            groupBox2 = new GroupBox();
+            resultOfWeekday = new TextBox();
+            parseButton = new Button();
+            label4 = new Label();
+            TextToParse = new TextBox();
+            groupBox2.SuspendLayout();
+            SuspendLayout();
             // 
-            // ParsedValueLabel
+            // groupBox2
             // 
-            this.ParsedValueLabel.AutoSize = true;
-            this.ParsedValueLabel.Location = new System.Drawing.Point(42, 194);
-            this.ParsedValueLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.ParsedValueLabel.Name = "ParsedValueLabel";
-            this.ParsedValueLabel.Size = new System.Drawing.Size(0, 25);
-            this.ParsedValueLabel.TabIndex = 16;
+            groupBox2.Controls.Add(resultOfWeekday);
+            groupBox2.Controls.Add(parseButton);
+            groupBox2.Controls.Add(label4);
+            groupBox2.Controls.Add(TextToParse);
+            groupBox2.Location = new Point(3, 3);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(373, 128);
+            groupBox2.TabIndex = 8;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Weekday Parsing";
             // 
-            // ParseButtonClick
+            // resultOfWeekday
             // 
-            this.ParseButtonClick.Location = new System.Drawing.Point(524, 127);
-            this.ParseButtonClick.Margin = new System.Windows.Forms.Padding(4);
-            this.ParseButtonClick.Name = "ParseButtonClick";
-            this.ParseButtonClick.Size = new System.Drawing.Size(112, 38);
-            this.ParseButtonClick.TabIndex = 15;
-            this.ParseButtonClick.Text = "Parse";
-            this.ParseButtonClick.UseVisualStyleBackColor = true;
-            this.ParseButtonClick.Click += new System.EventHandler(this.button1_Click);
+            resultOfWeekday.Enabled = false;
+            resultOfWeekday.Location = new Point(17, 78);
+            resultOfWeekday.Name = "resultOfWeekday";
+            resultOfWeekday.Size = new Size(246, 23);
+            resultOfWeekday.TabIndex = 3;
             // 
-            // ParsingTextBox
+            // parseButton
             // 
-            this.ParsingTextBox.Location = new System.Drawing.Point(46, 127);
-            this.ParsingTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.ParsingTextBox.Name = "ParsingTextBox";
-            this.ParsingTextBox.Size = new System.Drawing.Size(426, 31);
-            this.ParsingTextBox.TabIndex = 14;
+            parseButton.Location = new Point(269, 38);
+            parseButton.Name = "parseButton";
+            parseButton.Size = new Size(87, 23);
+            parseButton.TabIndex = 2;
+            parseButton.Text = "Parse";
+            parseButton.UseVisualStyleBackColor = true;
+            parseButton.Click += parseButton_Click;
             // 
-            // TypeLabel
+            // label4
             // 
-            this.TypeLabel.AutoSize = true;
-            this.TypeLabel.Location = new System.Drawing.Point(42, 87);
-            this.TypeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.TypeLabel.Name = "TypeLabel";
-            this.TypeLabel.Size = new System.Drawing.Size(232, 25);
-            this.TypeLabel.TabIndex = 13;
-            this.TypeLabel.Text = "Type value for parsing:";
+            label4.AutoSize = true;
+            label4.Location = new Point(17, 20);
+            label4.Name = "label4";
+            label4.Size = new Size(125, 15);
+            label4.TabIndex = 1;
+            label4.Text = "Type value for parsing:";
             // 
-            // WeekdayGroupBox
+            // TextToParse
             // 
-            this.WeekdayGroupBox.Location = new System.Drawing.Point(18, 27);
-            this.WeekdayGroupBox.Margin = new System.Windows.Forms.Padding(6);
-            this.WeekdayGroupBox.Name = "WeekdayGroupBox";
-            this.WeekdayGroupBox.Padding = new System.Windows.Forms.Padding(6);
-            this.WeekdayGroupBox.Size = new System.Drawing.Size(698, 242);
-            this.WeekdayGroupBox.TabIndex = 17;
-            this.WeekdayGroupBox.TabStop = false;
-            this.WeekdayGroupBox.Text = "Weekday Parsing";
+            TextToParse.Location = new Point(17, 38);
+            TextToParse.Name = "TextToParse";
+            TextToParse.Size = new Size(246, 23);
+            TextToParse.TabIndex = 0;
             // 
-            // WeekdaysControl
+            // WeekdayParsingControls
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.ParsedValueLabel);
-            this.Controls.Add(this.ParseButtonClick);
-            this.Controls.Add(this.ParsingTextBox);
-            this.Controls.Add(this.TypeLabel);
-            this.Controls.Add(this.WeekdayGroupBox);
-            this.Name = "WeekdaysControl";
-            this.Size = new System.Drawing.Size(739, 290);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(groupBox2);
+            Name = "WeekdayParsingControls";
+            Size = new Size(389, 140);
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
 
-        private System.Windows.Forms.Label ParsedValueLabel;
-        private System.Windows.Forms.Button ParseButtonClick;
-        private System.Windows.Forms.TextBox ParsingTextBox;
-        private System.Windows.Forms.Label TypeLabel;
-        private System.Windows.Forms.GroupBox WeekdayGroupBox;
+        private GroupBox groupBox2;
+        private TextBox resultOfWeekday;
+        private Button parseButton;
+        private Label label4;
+        private TextBox TextToParse;
     }
 }
