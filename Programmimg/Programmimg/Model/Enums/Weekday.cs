@@ -1,13 +1,22 @@
-﻿/// <summary>
-/// Хранит название дней недели и их нумерацию.
-/// </summary>
-public enum Weekday
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Programming.Model.Enums
 {
-    Monday = 1,
-    Tuesday = 2,
-    Wednesday = 3,
-    Thursday = 4,
-    Friday = 5,
-    Saturday = 6,
-    Sunday = 7
+    /// <summary>
+    /// Хранит список дней недели.
+    /// </summary>
+    public enum Weekday
+    {
+        Monday = 1,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday
+    }
 }
