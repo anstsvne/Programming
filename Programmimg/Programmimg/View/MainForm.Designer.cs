@@ -1,16 +1,17 @@
-﻿namespace Programmimg
+
+﻿namespace Programming
 {
     partial class MainForm
     {
         /// <summary>
-        /// Обязательная переменная конструктора.
+        ///  Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Освободить все используемые ресурсы.
+        ///  Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,152 +21,147 @@
             base.Dispose(disposing);
         }
 
-        #region Код, автоматически созданный конструктором форм Windows
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.weekdaysControl1 = new Programmimg.View.Panels.WeekdaysControl();
-            this.seasonControl1 = new Programming.View.Panels.SeasonControl();
-            this.enumerationsControl1 = new Programming.View.Panels.EnumerationsControl();
-            this.tabPageClasses = new System.Windows.Forms.TabPage();
-            this.filmsControl1 = new Programming.View.Panels.FilmsControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.rectanglesCollisionControl1 = new Programmimg.View.Panels.RectanglesCollisionControl();
-            this.rectanglesControl1 = new Programmimg.View.Panels.RectanglesControl();
-            this.tabControl1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPageClasses.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPageClasses);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1623, 1033);
-            this.tabControl1.TabIndex = 0;
-            this.tabControl1.Tag = "";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.weekdaysControl1);
-            this.tabPage2.Controls.Add(this.seasonControl1);
-            this.tabPage2.Controls.Add(this.enumerationsControl1);
-            this.tabPage2.Location = new System.Drawing.Point(8, 39);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1607, 986);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Enums";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // weekdaysControl1
-            // 
-            this.weekdaysControl1.Location = new System.Drawing.Point(37, 661);
-            this.weekdaysControl1.Name = "weekdaysControl1";
-            this.weekdaysControl1.Size = new System.Drawing.Size(741, 304);
-            this.weekdaysControl1.TabIndex = 17;
-            // 
-            // seasonControl1
-            // 
-            this.seasonControl1.Location = new System.Drawing.Point(784, 672);
-            this.seasonControl1.Name = "seasonControl1";
-            this.seasonControl1.Size = new System.Drawing.Size(752, 281);
-            this.seasonControl1.TabIndex = 16;
-            // 
-            // enumerationsControl1
-            // 
-            this.enumerationsControl1.Location = new System.Drawing.Point(16, 26);
-            this.enumerationsControl1.Name = "enumerationsControl1";
-            this.enumerationsControl1.Size = new System.Drawing.Size(1049, 617);
-            this.enumerationsControl1.TabIndex = 15;
-            // 
-            // tabPageClasses
-            // 
-            this.tabPageClasses.Controls.Add(this.rectanglesControl1);
-            this.tabPageClasses.Controls.Add(this.filmsControl1);
-            this.tabPageClasses.Location = new System.Drawing.Point(8, 39);
-            this.tabPageClasses.Name = "tabPageClasses";
-            this.tabPageClasses.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageClasses.Size = new System.Drawing.Size(1607, 986);
-            this.tabPageClasses.TabIndex = 2;
-            this.tabPageClasses.Text = "Classes";
-            this.tabPageClasses.UseVisualStyleBackColor = true;
-            // 
-            // filmsControl1
-            // 
-            this.filmsControl1.Location = new System.Drawing.Point(794, 22);
-            this.filmsControl1.Name = "filmsControl1";
-            this.filmsControl1.Size = new System.Drawing.Size(713, 774);
-            this.filmsControl1.TabIndex = 9;
+            tabPage1 = new TabPage();
+            seasonHandleControls1 = new View.Panels.SeasonHandleControls();
+            weekdayParsingControls1 = new View.Panels.WeekdayParsingControls();
+            enumerationsControls1 = new View.Panels.EnumerationsControls();
+            tabControl1 = new TabControl();
+            tabPage2 = new TabPage();
+            rectanglesControls1 = new View.Panels.RectanglesControls();
+            tabPage3 = new TabPage();
+            rectanglesCollisionControl1 = new View.Panels.RectanglesCollisionControl();
+            moviesControls1 = new View.Panels.MoviesControls();
+            tabPage1.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tabPage2.SuspendLayout();
+            tabPage3.SuspendLayout();
+            SuspendLayout();
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.rectanglesCollisionControl1);
-            this.tabPage1.Location = new System.Drawing.Point(8, 39);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1607, 986);
-            this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "Rectangle";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            tabPage1.Controls.Add(seasonHandleControls1);
+            tabPage1.Controls.Add(weekdayParsingControls1);
+            tabPage1.Controls.Add(enumerationsControls1);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(794, 436);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Enums";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // seasonHandleControls1
+            // 
+            seasonHandleControls1.Location = new Point(390, 287);
+            seasonHandleControls1.Name = "seasonHandleControls1";
+            seasonHandleControls1.Size = new Size(382, 143);
+            seasonHandleControls1.TabIndex = 11;
+            // 
+            // weekdayParsingControls1
+            // 
+            weekdayParsingControls1.Location = new Point(3, 287);
+            weekdayParsingControls1.Name = "weekdayParsingControls1";
+            weekdayParsingControls1.Size = new Size(381, 140);
+            weekdayParsingControls1.TabIndex = 10;
+            // 
+            // enumerationsControls1
+            // 
+            enumerationsControls1.Location = new Point(3, 0);
+            enumerationsControls1.Name = "enumerationsControls1";
+            enumerationsControls1.Size = new Size(776, 281);
+            enumerationsControls1.TabIndex = 9;
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage3);
+            tabControl1.Dock = DockStyle.Fill;
+            tabControl1.Location = new Point(0, 0);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(802, 464);
+            tabControl1.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(moviesControls1);
+            tabPage2.Controls.Add(rectanglesControls1);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(794, 436);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Classes";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // rectanglesControls1
+            // 
+            rectanglesControls1.Location = new Point(17, 21);
+            rectanglesControls1.Name = "rectanglesControls1";
+            rectanglesControls1.Size = new Size(359, 331);
+            rectanglesControls1.TabIndex = 2;
+            // 
+            // tabPage3
+            // 
+            tabPage3.Controls.Add(rectanglesCollisionControl1);
+            tabPage3.Location = new Point(4, 24);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(794, 436);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Rectangles";
+            tabPage3.UseVisualStyleBackColor = true;
             // 
             // rectanglesCollisionControl1
             // 
-            this.rectanglesCollisionControl1.Location = new System.Drawing.Point(0, 1);
-            this.rectanglesCollisionControl1.Name = "rectanglesCollisionControl1";
-            this.rectanglesCollisionControl1.Size = new System.Drawing.Size(1614, 992);
-            this.rectanglesCollisionControl1.TabIndex = 0;
+            rectanglesCollisionControl1.Dock = DockStyle.Fill;
+            rectanglesCollisionControl1.Location = new Point(3, 3);
+            rectanglesCollisionControl1.Name = "rectanglesCollisionControl1";
+            rectanglesCollisionControl1.Size = new Size(788, 430);
+            rectanglesCollisionControl1.TabIndex = 0;
             // 
-            // rectanglesControl1
+            // moviesControls1
             // 
-            this.rectanglesControl1.Location = new System.Drawing.Point(25, 23);
-            this.rectanglesControl1.Name = "rectanglesControl1";
-            this.rectanglesControl1.Size = new System.Drawing.Size(720, 847);
-            this.rectanglesControl1.TabIndex = 10;
+            moviesControls1.Location = new Point(382, 21);
+            moviesControls1.Name = "moviesControls1";
+            moviesControls1.Size = new Size(363, 334);
+            moviesControls1.TabIndex = 3;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1623, 1033);
-            this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "MainForm";
-            this.Text = "Programming Demo";
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPageClasses.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(802, 464);
+            Controls.Add(tabControl1);
+            Name = "MainForm";
+            Text = "Programming Demo";
+            tabPage1.ResumeLayout(false);
+            tabControl1.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
+            tabPage3.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPageClasses;
-        private System.Windows.Forms.TabPage tabPage1;
+        private TabPage tabPage1;
+        private TabControl tabControl1;
+        private TabPage tabPage2;
+        private TabPage tabPage3;
         private View.Panels.RectanglesCollisionControl rectanglesCollisionControl1;
-        private Programming.View.Panels.SeasonControl seasonControl1;
-        private Programming.View.Panels.EnumerationsControl enumerationsControl1;
-        private Programming.View.Panels.FilmsControl filmsControl1;
-        private View.Panels.WeekdaysControl weekdaysControl1;
-        private View.Panels.RectanglesControl rectanglesControl1;
+        private View.Panels.EnumerationsControls enumerationsControls1;
+        private View.Panels.WeekdayParsingControls weekdayParsingControls1;
+        private View.Panels.SeasonHandleControls seasonHandleControls1;
+        private View.Panels.RectanglesControls rectanglesControls1;
+        private View.Panels.MoviesControls moviesControls1;
     }
 }
-
