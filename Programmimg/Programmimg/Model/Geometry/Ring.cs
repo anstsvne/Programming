@@ -1,97 +1,78 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Programming.Model;
 
-namespace Programming.Model.Classes
+namespace Programming.Model
 {
     /// <summary>
-    /// Хранит данные о кольце - внешний и внутренний радиусы, координаты центра, площадь кольца.
+    /// Хранит данные о кольце.
     /// </summary>
-    public class Ring
+    internal class Ring
     {
-
         /// <summary>
-        /// Значение внешнего радиуса для каждого экземпляра класса.
+        /// Внутренний радиус кольца.
         /// </summary>
-        private Double _outerRadius;
-
+        private double _innerRadius;
         /// <summary>
-        /// Значение внутреннего радиуса для каждого экземпляра класса.
+        /// Внешний радиус кольца.
         /// </summary>
-        private Double _innerRadius;
-        private Double _p = 3.14;
-
+        private double _outerRadius;
         /// <summary>
-        /// Значение координаты X центра кольца для каждого экземпляра класса. 
+        /// Возвращает и задает внутренний радиус кольца. Не может быть больше внешнего радиуса или отрицательным.
         /// </summary>
-        private int _centerX;
-
-        /// <summary>
-        /// Значение координаты Y центра кольца для каждого экземпляра класса. 
-        /// </summary>
-        private int _centerY;
-        Random rand = new Random();
-
-        /// <summary>
-        /// Возвращает и задает внешний радиус. Должно быть от 0 до 50.
-        /// </summary>
-        public Double OuterRadius
-        {
-            get { return _outerRadius; }
-            set
-            {
-                Validator.AssertOnPositiveValue(value, nameof(OuterRadius));
-                Validator.AssertValueIsMore(value, _innerRadius);
-                Validator.AssertValueInRange(value, 0, 50, nameof(OuterRadius));
-                _outerRadius = value;
-            }
-        }
-
-        // <summary>
-        // Возвращает и задает внутренний радиус. Должно быть от 0 до 50.
-        // </summary>
-        public Double InnerRadius
+        public double InnerRadius
         {
             get { return _innerRadius; }
             set
             {
-                Validator.AssertOnPositiveValue(value, nameof(InnerRadius));
-                Validator.AssertValueIsMore(_outerRadius, value);
-                Validator.AssertValueInRange(value, 0, 50, nameof(InnerRadius));
+                if (value > _outerRadius || !Validator.AssertOnPositiveValue(value))
+                {
+                    throw new ArgumentException("Value is incorrect. It probably negative or it less than Outer Radius");
+                }
                 _innerRadius = value;
             }
         }
-
         /// <summary>
-        /// Возвращает координаты центра в двумерном пространстве.
+        /// Возвращает и задает внешний радиус. Не может быть меньше внутреннего радиуса или отрицательным.
+        /// </summary>
+        public double OuterRadius
+        {
+            get { return _outerRadius; }
+            set
+            {
+                if (value < _innerRadius || !Validator.AssertOnPositiveValue(value))
+                {
+                    throw new ArgumentException("Value is incorrect. It probably negative or it bigger than Inner Radius");
+                }
+                _outerRadius = value;
+            }
+        }
+        /// <summary>
+        /// Возвращает и задает координаты центра кольца в двумерном пространстве.
         /// </summary>
         public Point2D Center { get; private set; }
-
         /// <summary>
         /// Возвращает площадь кольца.
         /// </summary>
-        public Double Area
+        public double Area
         {
-            get => (((_p * (OuterRadius * OuterRadius)) - (_p * (InnerRadius * InnerRadius))));
-            private set { }
+            get { return Math.PI * (Math.Pow(_outerRadius, 2) - Math.Pow(_innerRadius, 2)); }
         }
-
         /// <summary>
-        /// Создает объект класса <see cref="Ring"/>.
+        /// Создает экземпляр класса <see cref="Ring"/>
         /// </summary>
-        /// <param name="outerRadius">Внешний радиус.</param>
+        /// <param name="center">Координаты центра кольца в двумерном пространстве.</param>
         /// <param name="innerRadius">Внутренний радиус.</param>
-        public Ring(Double outerRadius, Double innerRadius)
+        /// <param name="outerRadius">Внешний радиус.</param>
+        public Ring( Point2D center, double innerRadius, double outerRadius)
         {
-            OuterRadius = outerRadius;
+            Center = center;
             InnerRadius = innerRadius;
-
-            _centerX = rand.Next(50, 150);
-            _centerY = rand.Next(50, 150);
-            Center = new Point2D(_centerY, _centerX);
+            OuterRadius = outerRadius;
         }
+        public Ring() { }
     }
 }
