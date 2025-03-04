@@ -1,16 +1,17 @@
-﻿namespace Programmimg.View.Panels
+
+﻿namespace Programming.View.Panels
 {
     partial class RectanglesCollisionControl
     {
         /// <summary> 
-        /// Обязательная переменная конструктора.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
-        /// Освободить все используемые ресурсы.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,218 +21,221 @@
             base.Dispose(disposing);
         }
 
-        #region Код, автоматически созданный конструктором компонентов
+        #region Component Designer generated code
 
         /// <summary> 
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.CanvaLengthTxtBox = new System.Windows.Forms.TextBox();
-            this.CanvaWidthTxtBox = new System.Windows.Forms.TextBox();
-            this.CanvaYTxtBox = new System.Windows.Forms.TextBox();
-            this.CanvaXTxtBox = new System.Windows.Forms.TextBox();
-            this.CanvaIdTxtBox = new System.Windows.Forms.TextBox();
-            this.DelRecButton = new System.Windows.Forms.Button();
-            this.AddRecButton = new System.Windows.Forms.Button();
-            this.CanvaRectPanel = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.CanvaRectListBox = new System.Windows.Forms.ListBox();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RectanglesCollisionControl));
+            heightRecTextBox = new TextBox();
+            label23 = new Label();
+            widthRecTextBox = new TextBox();
+            label22 = new Label();
+            yRecTextBox = new TextBox();
+            label21 = new Label();
+            xRecTextBox = new TextBox();
+            label20 = new Label();
+            idRecTextBox = new TextBox();
+            label19 = new Label();
+            label18 = new Label();
+            deleteRectangleButton = new Button();
+            addRectangleButton = new Button();
+            RecListBox = new ListBox();
+            label17 = new Label();
+            RectanglePanels = new Panel();
+            SuspendLayout();
             // 
-            // groupBox3
+            // heightRecTextBox
             // 
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.CanvaLengthTxtBox);
-            this.groupBox3.Controls.Add(this.CanvaWidthTxtBox);
-            this.groupBox3.Controls.Add(this.CanvaYTxtBox);
-            this.groupBox3.Controls.Add(this.CanvaXTxtBox);
-            this.groupBox3.Controls.Add(this.CanvaIdTxtBox);
-            this.groupBox3.Location = new System.Drawing.Point(23, 551);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(648, 422);
-            this.groupBox3.TabIndex = 9;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Selected Rectangle";
+            heightRecTextBox.Location = new Point(58, 392);
+            heightRecTextBox.Name = "heightRecTextBox";
+            heightRecTextBox.Size = new Size(136, 23);
+            heightRecTextBox.TabIndex = 31;
+            heightRecTextBox.TextChanged += heightRecTextBox_TextChanged;
             // 
-            // label5
+            // label23
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 327);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 25);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Length:";
+            label23.AutoSize = true;
+            label23.Location = new Point(6, 395);
+            label23.Name = "label23";
+            label23.Size = new Size(46, 15);
+            label23.TabIndex = 30;
+            label23.Text = "Height:";
             // 
-            // label4
+            // widthRecTextBox
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 258);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 25);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Width:";
+            widthRecTextBox.Location = new Point(58, 363);
+            widthRecTextBox.Name = "widthRecTextBox";
+            widthRecTextBox.Size = new Size(136, 23);
+            widthRecTextBox.TabIndex = 29;
+            widthRecTextBox.TextChanged += widthRecTextBox_TextChanged;
             // 
-            // label3
+            // label22
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 185);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 25);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Y:";
+            label22.AutoSize = true;
+            label22.Location = new Point(10, 366);
+            label22.Name = "label22";
+            label22.Size = new Size(42, 15);
+            label22.TabIndex = 28;
+            label22.Text = "Width:";
             // 
-            // label2
+            // yRecTextBox
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 112);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 25);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "X:";
+            yRecTextBox.Location = new Point(58, 332);
+            yRecTextBox.Name = "yRecTextBox";
+            yRecTextBox.Size = new Size(136, 23);
+            yRecTextBox.TabIndex = 27;
+            yRecTextBox.TextChanged += yRecTextBox_TextChanged;
             // 
-            // label1
+            // label21
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 25);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "id:";
+            label21.AutoSize = true;
+            label21.Location = new Point(35, 335);
+            label21.Name = "label21";
+            label21.Size = new Size(17, 15);
+            label21.TabIndex = 26;
+            label21.Text = "Y:";
             // 
-            // CanvaLengthTxtBox
+            // xRecTextBox
             // 
-            this.CanvaLengthTxtBox.Location = new System.Drawing.Point(102, 321);
-            this.CanvaLengthTxtBox.Name = "CanvaLengthTxtBox";
-            this.CanvaLengthTxtBox.Size = new System.Drawing.Size(202, 31);
-            this.CanvaLengthTxtBox.TabIndex = 4;
-            this.CanvaLengthTxtBox.TextChanged += new System.EventHandler(this.CanvaLengthTxtBox_TextChanged);
+            xRecTextBox.Location = new Point(58, 303);
+            xRecTextBox.Name = "xRecTextBox";
+            xRecTextBox.Size = new Size(136, 23);
+            xRecTextBox.TabIndex = 25;
+            xRecTextBox.TextChanged += xRecTextBox_TextChanged;
             // 
-            // CanvaWidthTxtBox
+            // label20
             // 
-            this.CanvaWidthTxtBox.Location = new System.Drawing.Point(102, 252);
-            this.CanvaWidthTxtBox.Name = "CanvaWidthTxtBox";
-            this.CanvaWidthTxtBox.Size = new System.Drawing.Size(202, 31);
-            this.CanvaWidthTxtBox.TabIndex = 3;
-            this.CanvaWidthTxtBox.TextChanged += new System.EventHandler(this.CanvaWidthTxtBox_TextChanged);
+            label20.AutoSize = true;
+            label20.Location = new Point(35, 306);
+            label20.Name = "label20";
+            label20.Size = new Size(17, 15);
+            label20.TabIndex = 24;
+            label20.Text = "X:";
             // 
-            // CanvaYTxtBox
+            // idRecTextBox
             // 
-            this.CanvaYTxtBox.Location = new System.Drawing.Point(102, 179);
-            this.CanvaYTxtBox.Name = "CanvaYTxtBox";
-            this.CanvaYTxtBox.Size = new System.Drawing.Size(202, 31);
-            this.CanvaYTxtBox.TabIndex = 2;
+            idRecTextBox.Enabled = false;
+            idRecTextBox.Location = new Point(58, 272);
+            idRecTextBox.Name = "idRecTextBox";
+            idRecTextBox.ReadOnly = true;
+            idRecTextBox.Size = new Size(136, 23);
+            idRecTextBox.TabIndex = 23;
             // 
-            // CanvaXTxtBox
+            // label19
             // 
-            this.CanvaXTxtBox.Location = new System.Drawing.Point(102, 106);
-            this.CanvaXTxtBox.Name = "CanvaXTxtBox";
-            this.CanvaXTxtBox.Size = new System.Drawing.Size(202, 31);
-            this.CanvaXTxtBox.TabIndex = 1;
+            label19.AutoSize = true;
+            label19.Location = new Point(32, 275);
+            label19.Name = "label19";
+            label19.Size = new Size(20, 15);
+            label19.TabIndex = 22;
+            label19.Text = "Id:";
             // 
-            // CanvaIdTxtBox
+            // label18
             // 
-            this.CanvaIdTxtBox.Location = new System.Drawing.Point(102, 39);
-            this.CanvaIdTxtBox.Name = "CanvaIdTxtBox";
-            this.CanvaIdTxtBox.Size = new System.Drawing.Size(202, 31);
-            this.CanvaIdTxtBox.TabIndex = 0;
+            label18.AutoSize = true;
+            label18.Location = new Point(3, 249);
+            label18.Name = "label18";
+            label18.Size = new Size(109, 15);
+            label18.TabIndex = 21;
+            label18.Text = "Selected Rectangle:";
             // 
-            // DelRecButton
+            // deleteRectangleButton
             // 
-            this.DelRecButton.Location = new System.Drawing.Point(348, 482);
-            this.DelRecButton.Name = "DelRecButton";
-            this.DelRecButton.Size = new System.Drawing.Size(323, 45);
-            this.DelRecButton.TabIndex = 8;
-            this.DelRecButton.Text = "Delete Rectangle";
-            this.DelRecButton.UseVisualStyleBackColor = true;
-            this.DelRecButton.Click += new System.EventHandler(this.DelRecButton_Click);
+            deleteRectangleButton.BackColor = Color.White;
+            deleteRectangleButton.Image = (Image)resources.GetObject("deleteRectangleButton.Image");
+            deleteRectangleButton.Location = new Point(115, 189);
+            deleteRectangleButton.Name = "deleteRectangleButton";
+            deleteRectangleButton.Size = new Size(67, 57);
+            deleteRectangleButton.TabIndex = 20;
+            deleteRectangleButton.UseVisualStyleBackColor = false;
+            deleteRectangleButton.Click += deleteRectangleButton_Click;
             // 
-            // AddRecButton
+            // addRectangleButton
             // 
-            this.AddRecButton.Location = new System.Drawing.Point(23, 482);
-            this.AddRecButton.Name = "AddRecButton";
-            this.AddRecButton.Size = new System.Drawing.Size(319, 45);
-            this.AddRecButton.TabIndex = 7;
-            this.AddRecButton.Text = "Add Rectangle";
-            this.AddRecButton.UseVisualStyleBackColor = true;
-            this.AddRecButton.Click += new System.EventHandler(this.AddRecButton_Click);
+            addRectangleButton.BackColor = Color.White;
+            addRectangleButton.FlatAppearance.BorderColor = Color.White;
+            addRectangleButton.FlatAppearance.BorderSize = 0;
+            addRectangleButton.Image = (Image)resources.GetObject("addRectangleButton.Image");
+            addRectangleButton.Location = new Point(32, 189);
+            addRectangleButton.Name = "addRectangleButton";
+            addRectangleButton.Size = new Size(67, 57);
+            addRectangleButton.TabIndex = 19;
+            addRectangleButton.UseVisualStyleBackColor = false;
+            addRectangleButton.Click += addRectangleButton_Click;
             // 
-            // CanvaRectPanel
+            // RecListBox
             // 
-            this.CanvaRectPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CanvaRectPanel.Location = new System.Drawing.Point(710, 34);
-            this.CanvaRectPanel.Name = "CanvaRectPanel";
-            this.CanvaRectPanel.Size = new System.Drawing.Size(881, 939);
-            this.CanvaRectPanel.TabIndex = 6;
+            RecListBox.FormattingEnabled = true;
+            RecListBox.ItemHeight = 15;
+            RecListBox.Location = new Point(3, 32);
+            RecListBox.Name = "RecListBox";
+            RecListBox.Size = new Size(295, 154);
+            RecListBox.TabIndex = 18;
+            RecListBox.SelectedIndexChanged += RecListBox_SelectedIndexChanged;
             // 
-            // groupBox2
+            // label17
             // 
-            this.groupBox2.Controls.Add(this.CanvaRectListBox);
-            this.groupBox2.Location = new System.Drawing.Point(23, 34);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(648, 430);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Rectangle";
+            label17.AutoSize = true;
+            label17.Location = new Point(3, 14);
+            label17.Name = "label17";
+            label17.Size = new Size(67, 15);
+            label17.TabIndex = 17;
+            label17.Text = "Rectangles:";
             // 
-            // CanvaRectListBox
+            // RectanglePanels
             // 
-            this.CanvaRectListBox.FormattingEnabled = true;
-            this.CanvaRectListBox.ItemHeight = 25;
-            this.CanvaRectListBox.Location = new System.Drawing.Point(22, 30);
-            this.CanvaRectListBox.Name = "CanvaRectListBox";
-            this.CanvaRectListBox.Size = new System.Drawing.Size(606, 379);
-            this.CanvaRectListBox.TabIndex = 0;
-            this.CanvaRectListBox.SelectedIndexChanged += new System.EventHandler(this.CanvaRectListBox_SelectedIndexChanged);
+            RectanglePanels.BorderStyle = BorderStyle.FixedSingle;
+            RectanglePanels.Location = new Point(304, 14);
+            RectanglePanels.Name = "RectanglePanels";
+            RectanglePanels.Size = new Size(480, 413);
+            RectanglePanels.TabIndex = 16;
             // 
             // RectanglesCollisionControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.DelRecButton);
-            this.Controls.Add(this.AddRecButton);
-            this.Controls.Add(this.CanvaRectPanel);
-            this.Controls.Add(this.groupBox2);
-            this.Name = "RectanglesCollisionControl";
-            this.Size = new System.Drawing.Size(1614, 1005);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(heightRecTextBox);
+            Controls.Add(label23);
+            Controls.Add(widthRecTextBox);
+            Controls.Add(label22);
+            Controls.Add(yRecTextBox);
+            Controls.Add(label21);
+            Controls.Add(xRecTextBox);
+            Controls.Add(label20);
+            Controls.Add(idRecTextBox);
+            Controls.Add(label19);
+            Controls.Add(label18);
+            Controls.Add(deleteRectangleButton);
+            Controls.Add(addRectangleButton);
+            Controls.Add(RecListBox);
+            Controls.Add(label17);
+            Controls.Add(RectanglePanels);
+            Name = "RectanglesCollisionControl";
+            Size = new Size(792, 438);
+            ResumeLayout(false);
+            PerformLayout();
         }
-
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox CanvaLengthTxtBox;
-        private System.Windows.Forms.TextBox CanvaWidthTxtBox;
-        private System.Windows.Forms.TextBox CanvaYTxtBox;
-        private System.Windows.Forms.TextBox CanvaXTxtBox;
-        private System.Windows.Forms.TextBox CanvaIdTxtBox;
-        private System.Windows.Forms.Button DelRecButton;
-        private System.Windows.Forms.Button AddRecButton;
-        private System.Windows.Forms.Panel CanvaRectPanel;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ListBox CanvaRectListBox;
+        private TextBox heightRecTextBox;
+        private Label label23;
+        private TextBox widthRecTextBox;
+        private Label label22;
+        private TextBox yRecTextBox;
+        private Label label21;
+        private TextBox xRecTextBox;
+        private Label label20;
+        private TextBox idRecTextBox;
+        private Label label19;
+        private Label label18;
+        private Button deleteRectangleButton;
+        private Button addRectangleButton;
+        private ListBox RecListBox;
+        private Label label17;
+        private Panel RectanglePanels;
     }
 }
