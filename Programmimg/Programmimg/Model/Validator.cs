@@ -1,91 +1,75 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Programming.Model.Classes
+namespace Programming.Model
 {
-
     /// <summary>
-    /// Предоставляет методы для валидации значений полей.
+    /// Храниты методы для валидации значений полей.
     /// </summary>
-    public class Validator
+    static class Validator
     {
-
         /// <summary>
-        /// Проверяет, что целое число является положительным.
-        /// </summary>
-        /// <param name="value"> Проверяемое значение. </param>
-        /// <param name="propertyName"> Имя свойства. </param>
-        /// <exception cref="ArgumentException"> Ошибка, выдаваемая, если значение не проходит проверку. </exception>
-        public static void AssertOnPositiveValue(int value, string propertyName)
-        {
-            if (value <= 0)
-            {
-                throw new ArgumentException($"The value \"{value}\" is invalid for property \"{propertyName}\". It must be a positive integer.");
-            }
-        }
-
-        /// <summary>
-        /// Проверяет, что число типа double является положительным.
-        /// </summary>
-        /// <param name="value"> Проверяемое значение. </param>
-        /// <param name="propertyName"> Имя свойства. </param>
-        /// <exception cref="ArgumentException"> Ошибка, выдаваемая, если значение не проходит проверку. </exception>
-        public static void AssertOnPositiveValue(double value, string propertyName)
-        {
-            if (value <= 0)
-            {
-                throw new ArgumentException($"The value \"{value}\" is invalid for property \"{propertyName}\". It must be a positive integer.");
-            }
-        }
-
-        /// <summary>
-        /// Проверяет, что целое число принадлежит промежутку от значения "min" до значения "max".
-        /// </summary>
-        /// <param name="value"> Проверяемое значение. </param>
-        /// <param name="min"> Левая граница промежутка. </param>
-        /// <param name="max"> Правая граница промежутка. </param>
-        /// <param name="propertyName"> Имя свойства. </param>
-        /// <exception cref="ArgumentException"></exception>
-        public static void AssertValueInRange(int value, int min, int max, string propertyName)
-        {
-            if (value < min || value > max)
-            {
-                throw new ArgumentException($"The value \"{value}\" is out of range for property \"{propertyName}\". It must be between {min} and {max}.");
-            }
-        }
-
-        /// <summary>
-        /// Проверяет, что число типа double принадлежит промежутку от значения "min" до значения "max".
+        /// Проверяет, положительное ли число.
         /// </summary>
         /// <param name="value">Проверяемое значение.</param>
-        /// <param name="min">Левая граница промежутка.</param>
-        /// <param name="max">Правая граница промежутка.</param>
-        /// <param name="propertyName">Имя свойства.</param>
-        /// <exception cref="ArgumentException"></exception>
-        public static void AssertValueInRange(double value, int min, int max, string propertyName)
+        /// <returns>Возвращает true, если положительное.</returns>
+        /// <exception cref="ArgumentException">Выдает ошибку, если число отрицательное.</exception>
+        public static bool AssertOnPositiveValue (int value)
+        {
+            if (value < 0)
+            {
+                throw new ArgumentException($"Incorrect value: {value} in {nameof(value)}. Value must be positive");
+            }
+            return true;
+        }
+        /// <summary>
+        /// Проверяет, положительное ли число.
+        /// </summary>
+        /// <param name="value">Проверяемое значение.</param>
+        /// <returns>Возвращает true, если положительное.</returns>
+        /// <exception cref="ArgumentException">Выдает ошибку, если число отрицательное.</exception>
+        public static bool AssertOnPositiveValue(double value)
+        {
+            if (value < 0.0)
+            {
+                throw new ArgumentException($"Incorrect value: {value} in {nameof(value)}. Value must be positive");
+            }
+            return true;
+        }
+        /// <summary>
+        /// Проверяет, находится ли число в интервале.
+        /// </summary>
+        /// <param name="value">Текущее значение.</param>
+        /// <param name="min">Минимальное значение.</param>
+        /// <param name="max">Максимальное значение.</param>
+        /// <returns>Возвращает true, если текущее значение находится в заданном диапазоне.</returns>
+        /// <exception cref="ArgumentException">Выдает ошибку, если текущее значение не находится в заданном диапазоне.</exception>
+        public static bool AssertValueInRange(int value, int min, int max)
         {
             if (value < min || value > max)
             {
-                throw new ArgumentException($"The value \"{value}\" is out of range for property \"{propertyName}\". It must be between {min} and {max}.");
+                throw new ArgumentException($"Value not in range: {value} in {nameof(value)}");
             }
+            return true;
         }
-
         /// <summary>
-        /// Проверяет, что значение первого аргумента, больше второго.
+        /// Проверяет, находится ли число в интервале.
         /// </summary>
-        /// <param name="firstValue">Значение первого аргумента.</param>
-        /// <param name="secondValue">Значение второго аргумента</param>
-        /// <exception cref="ArgumentException"></exception>
-        public static void AssertValueIsMore(Double firstValue, Double secondValue)
+        /// <param name="value">Текущее значение.</param>
+        /// <param name="min">Минимальное значение.</param>
+        /// <param name="max">Максимальное значение.</param>
+        /// <returns>Возвращает true, если текущее значение находится в заданном диапазоне.</returns>
+        /// <exception cref="ArgumentException">Выдает ошибку, если текущее значение не находится в заданном диапазоне.</exception>
+        public static bool AssertValueInRange(double value, double min, double max)
         {
-            if (firstValue < secondValue)
+            if (value < min || value > max)
             {
-                throw new ArgumentException();
+                throw new ArgumentException($"Value not in range: {value} in {nameof(value)}");
             }
+            return true;
         }
     }
 }
