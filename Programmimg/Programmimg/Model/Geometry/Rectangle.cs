@@ -1,122 +1,128 @@
-﻿using Programming.Model.Classes;
-using System;
-/// <summary>
-/// Хранит данные о прямоугольнике - длина, ширина, цвет, координаты центра и уникальный идентификатор.
-/// </summary> 
-public class Rectangle
+
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Programming.Model;
+
+namespace Programming.Model
 {
     /// <summary>
-    /// Значение ширины для каждого экземпляра класса.
+    /// Хранит данные о прямоугольнике.
     /// </summary>
-    private int _width;
-
-    /// <summary>
-    /// Значение длины для каждого экземпляра класса.
-    /// </summary>
-    private int _length;
-
-    /// <summary>
-    /// Значение цвета для каждого экземпляра класса из перечисления <see cref="Colour"/>
-    /// </summary>
-    private string _color;
-
-    /// <summary>
-    /// Значение координаты X центра прямоугольника для каждого экземпляра класса.
-    /// </summary>
-    private int _centerX;
-
-    /// <summary>
-    /// Значение координаты Y центра прямоугольника для каждого экземпляра класса.
-    /// </summary>
-    private int _centerY;
-
-    /// <summary>
-    /// Значение уникального идентификатора для каждого экземпляра класса.
-    /// </summary>
-    private int _id;
-
-    /// <summary>
-    /// Счётчик общего числа прямоугольников.
-    /// </summary>
-    private static int _allRectangelsCount = 0;
-
-    Random rand = new Random();
-
-    /// <summary>
-    /// Возвращает координаты центра X и Y прямоугольника.
-    /// </summary>
-    public Point2D Center { get; private set; }
-
-    /// <summary>
-    /// Возвращает и задаёт ширину прямоугольника. Значение должно быть больше 0.
-    /// </summary>
-    public int Width
+    internal class Rectangle
     {
-        get
+        /// <summary>
+        /// Длина прямоугольника.
+        /// </summary>
+        private int _length;
+        /// <summary>
+        /// Ширина прямоугольника.
+        /// </summary>
+        private int _width;
+        /// <summary>
+        /// Цвет прямоугольника.
+        /// </summary>
+        private string _colour;
+        /// <summary>
+        /// Количество прямоугольников.
+        /// </summary>
+        private static int _allRectanglesCount;
+        /// <summary>
+        /// Уникальный идентификатор прямоугольника.
+        /// </summary>
+        private readonly int _id;
+        /// <summary>
+        /// Координата центра прямоугольника.
+        /// </summary>
+        private Point2D _center;
+        /// <summary>
+        /// Возвращает уникальный идентификатор прямоугольника.
+        /// </summary>
+        public int Id
         {
-            return _width;
+            get { return _id; }
         }
-        set
+        /// <summary>
+        /// Возвращает и задает координаты центра прямоугольника.
+        /// </summary>
+        public Point2D Center { get; set; }
+        /// <summary>
+        /// Возвращает и задает длину прямоугольника. Не может быть отрицательной.
+        /// </summary>
+        public int Length
         {
-            Validator.AssertOnPositiveValue(value, nameof(Width));
-            _width = value;
+            get { return _length; }
+            set
+            {
+                if (Validator.AssertOnPositiveValue(value))
+                {
+                    _length = value;
+                }
+            }
         }
-    }
-
-    /// <summary>
-    /// Возвращает и задаёт длину прямоугольника. Значение должно быть больше 0.
-    /// </summary>
-    public int Length
-    {
-        get
+        /// <summary>
+        /// Возвращает и задает ширину прямоугольника. Не может быть отрицательной.
+        /// </summary>
+        public int Width
         {
-            return _length;
+            get { return _width; }
+            set
+            {
+                if (Validator.AssertOnPositiveValue(value))
+                {
+                    _width = value;
+                }
+            }
         }
-        set
+        /// <summary>
+        /// Возвращает и задает цвет прямоугольника. Не может содержать цифрым или быть пустым.
+        /// </summary>
+        public string Colour
         {
-            Validator.AssertOnPositiveValue(value, nameof(Length));
-            _length = value;
+            get { return _colour; }
+            set
+            {
+                bool flag = false;
+                foreach (char c in value)
+                {
+                    if (char.IsDigit(c))
+                    {
+                        flag = true;
+                        break;
+                    }
+                }
+                if (flag || string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Incorrect value. It probably contains numbers or empty");
+                }
+                _colour = value;
+            }
         }
+        /// <summary>
+        /// Задает количество прямоугольников.
+        /// </summary>
+        public static int AllRectanglesCount
+        {
+            set { _allRectanglesCount = value; }
+        }
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Rectangle"/>
+        /// </summary>
+        /// <param name="length">Длина прямоугольника. Не может быть отрицательной.</param>
+        /// <param name="width">Ширина прямоугольника. Не может быть отрицательной.</param>
+        /// <param name="colour">Цвет прямоугольника. Не может быть пустым или содержать цифры.</param>
+        /// <param name="center">Координаты центра прямоугольника.</param>
+        public Rectangle(int length, int width, string colour, Point2D center)
+        {
+            Length = length;
+            Width = width;
+            Colour = colour;
+            Center = center;
+            _allRectanglesCount++;
+            _id = _allRectanglesCount;
+        }
+        public Rectangle() { }
     }
-
-    /// <summary>
-    /// Возвращает и задаёт цвет прямоугольника из перечисления <see cref="Colour"/>.
-    /// </summary>
-    public Colour Color { get; set; }
-
-    /// <summary>
-    /// Возвращает общее количество прямоугольников.
-    /// </summary>
-    /// <returns>Общее количество прямоугольников</returns>
-    public static int AllRectanglesCount()
-    {
-        return _allRectangelsCount;
-    }
-
-
-    /// <summary>
-    /// Возвращает уникальный идентификатор прямоугольника.
-    /// </summary>
-    public int ID { get => _id; }
-
-    /// <summary>
-    /// Создаёт экземпляр класса <see cref="Rectangle"/>.
-    /// </summary>
-    /// <param name="width">Ширина прямоугольника. Значение должно быть больше 0.</param>
-    /// <param name="length">Длина прямоугольника. Значение должно быть больше 0.</param>
-    /// <param name="color">Цвет прямоугольника.</param>
-    public Rectangle(int width, int length, Colour color)
-    {
-        Width = width;
-        Length = length;
-        Color = color;
-
-        _centerX = rand.Next(50, 150);
-        _centerY = rand.Next(50, 150);
-        Center = new Point2D(_centerX, _centerY);
-
-        _allRectangelsCount++;
-        _id = _allRectangelsCount;
-    }
-    public Rectangle() { }
 }
