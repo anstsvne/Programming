@@ -1,4 +1,4 @@
-﻿
+﻿using Programming.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,39 +11,44 @@ using System.Windows.Forms;
 
 namespace Programming.View.Panels
 {
-    public partial class EnumerationsControl : UserControl
+    /// <summary>
+    /// Хранит данные о пользовательском интерфейсе GroupBox'а перечислений.
+    /// </summary>
+    public partial class EnumerationsControls : UserControl
     {
-        public EnumerationsControl()
+        public EnumerationsControls()
         {
             InitializeComponent();
         }
-        private readonly Type[] _typeModel = new Type[]
+        //Приведение всех перечисление к одному типу.
+        private readonly Type[] _typeModel = new Type[] { typeof(Colours),
+        typeof(FormOfTheStudentEducation), typeof(Genre), typeof (SeasonOfYear),
+        typeof(SmartphoneManufacturers), typeof(Weekday)};
+        /// <summary>
+        /// Отображает числовое значение выбранного элемента перечисления.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            typeof(Colour), typeof(EducationForm), typeof(Genre), typeof(Manufactures), typeof(Season),
-            typeof(Weekday)
-        };
-
-        static private bool TryGetEnumValue<T>(string itemName, out T value) where T : struct
-        {
-            if (Enum.TryParse<T>(itemName, true, out value))
-            {
-                return true;
-            }
-
-            value = default;
-            return false;
+            int selectedIndex = ValuesListBox.SelectedIndex;
+            intValueTextBox.Text = selectedIndex.ToString();
         }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Отображает в выбранном перечислении его значения.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EnumsListBox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             int selectedIndex = EnumsListBox.SelectedIndex;
             object[] values = Enum.GetValues(_typeModel[selectedIndex]).Cast<object>().ToArray();
             ValuesListBox.Items.Clear();
             ValuesListBox.Items.AddRange(values);
         }
-        private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void intValueTextBox_TextChanged(object sender, EventArgs e)
         {
-            IntTextBox.Text = ValuesListBox.SelectedIndex.ToString();
+
         }
     }
 }
