@@ -1,4 +1,5 @@
-﻿using Programming.Model.Classes;
+
+﻿using Programming.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,125 +9,185 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Rectangle = Programming.Model.Rectangle;
 
-namespace Programmimg.View.Panels
+namespace Programming.View.Panels
 {
     /// <summary>
-    /// Осуществляет поиск прямоугольника с наибольшей шириной.
+    /// Хранит данные о пользовательском интерфейсе.
     /// </summary>
-    public partial class RectanglesControl : UserControl
+    public partial class RectanglesControls : UserControl
     {
-
-        Rectangle[] _rectangles = new Rectangle[5];
-        Rectangle _currentRectangle = new Rectangle();
-        
-        /// <summary>
-        /// Создание 5 прямоугольников со случайными значениями.
-        /// </summary>
-        public RectanglesControl()
+        Rectangle[] _rectangles;
+        Rectangle _currentRectangle;
+        public RectanglesControls()
         {
-            InitializeComponent();
             Random random = new Random();
-            string[] rectangle_listboxItems = new string[5];
-            for (int i = 0; i < 5; i++)
-            {
-                Colour randcolor = (Colour)random.Next(1, 7);
-                Rectangle rectangle = new Rectangle(random.Next(3, 118), random.Next(3, 320), randcolor);
-                _rectangles[i] = rectangle;
-                rectangle_listboxItems[i] = ($"Rectangle {i + 1}");
-            }
-            listBoxRectangles.Items.AddRange(rectangle_listboxItems);
-        }
+            //Создание списка с 5 прямоугольниками.
+            _rectangles = new Rectangle[5];
 
+            string[] colors = new string[] { "green", "black", "red", "blue", "yellow" };
+            //Генерация прямоугольников.
+            for (int i = 0; i < _rectangles.Length; i++)
+            {
+                //Генерация длины и ширины прямоугольника в интервале от 1 до 100.
+                int length = random.Next(1, 100);
+                int width = random.Next(1, 100);
+
+                //Генерация цвета прямоугольника.
+                int selectedColor = random.Next(colors.Length);
+
+                //Генерация координат центра прямоугольника в интервале от 1 до 350.
+                int xCenter = random.Next(1, 350);
+                int yCenter = random.Next(1, 350);
+
+                Point2D center = new Point2D(xCenter, yCenter);
+                _currentRectangle = new Rectangle(length, width, colors[selectedColor], center);
+                _rectangles[i] = _currentRectangle;
+            }
+            InitializeComponent();
+        }
         /// <summary>
-        /// Изменение и сохранение значений длины с их валидацией.
+        /// Осуществляет поиск прямоугольника с наибольшей шириной.
+        /// </summary>
+        /// <returns>Возвращает индекс прямоугольника с максимальной шириной.</returns>
+        /// <exception cref="InvalidOperationException">Выдает ошибку в случае отсутствия прямоугольников.</exception>
+        private int FindRectangleWithMaxWidth()
+        {
+            if (_rectangles.Length != 0)
+            {
+                int indexOfMaxWidth = 0;
+                double maxWidth = _rectangles[0].Width;
+                for (int i = 1; i < _rectangles.Length; i++)
+                {
+                    if (maxWidth < _rectangles[i].Width)
+                    {
+                        maxWidth = _rectangles[i].Width;
+                        indexOfMaxWidth = i;
+                    }
+                }
+                return indexOfMaxWidth;
+            }
+            throw new InvalidOperationException("No rectangles there are");
+        }
+        /// <summary>
+        /// Отображает данные выбранного прямоугольника.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBoxLenght_TextChanged(object sender, EventArgs e)
+        private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = listBoxRectangles.Items.IndexOf(_currentRectangle);
+            int selectedIndex = RectanglesListBox.SelectedIndex;
+            _currentRectangle = _rectangles[selectedIndex];
+            if (_currentRectangle != null)
+            {
+                lengthTextBox.Text = _currentRectangle.Length.ToString();
+                widthTextBox.Text = _currentRectangle.Width.ToString();
+                colourTextBox.Text = _currentRectangle.Colour.ToString();
+                xCenterTextBox.Text = _currentRectangle.Center.X.ToString();
+                yCenterTextBox.Text = _currentRectangle.Center.Y.ToString();
+                idTextBox.Text = (_currentRectangle.Id-2).ToString();
+            }
+        }
+        /// <summary>
+        /// Изменение и сохранение новой длины прямоугольника с его валидацией.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lengthTextBox_TextChanged(object sender, EventArgs e)
+        {
             try
             {
-                textBoxLenght.BackColor = AppColors.StandartColor;
-                int length = int.Parse(textBoxLenght.Text);
-                _currentRectangle.Length = length;
-
-            }
-            catch (Exception)
-            {
-                textBoxLenght.BackColor = AppColors.InvalidColor;
-            }
-
-        }
-
-        /// <summary>
-        /// Отображение параметров выбранного прямоугольника в ТекстБоксах.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void listBoxRectangles_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listBoxRectangles.SelectedIndex == -1) return;
-            _currentRectangle = _rectangles[listBoxRectangles.SelectedIndex];
-            textBoxLenght.Text = _currentRectangle.Length.ToString();
-            textBoxWidth.Text = _currentRectangle.Width.ToString();
-            textBoxColor.Text = _currentRectangle.Color.ToString();
-            xcentertxtbox.Text = _currentRectangle.Center.coord_X.ToString();
-            ycentertxtbox.Text = _currentRectangle.Center.coord_Y.ToString();
-            idtxtbox.Text = _currentRectangle.ID.ToString();
-        }
-
-        /// <summary>
-        /// Метод для поиска прямоугольника с наибольшей шириной.
-        /// </summary>
-        /// <param name="rectangles"> Массив прямоугольников. </param>
-        /// <returns>  Индекс прямоугольника с наибольшей шириной. </returns>
-        private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
-        {
-            double MaxWidth = rectangles[0].Width;
-            int MaxWidthIndex = 0;
-            for (int i = 0; i < 5; i++)
-            {
-                if (rectangles[i].Width > MaxWidth)
+                if (_currentRectangle != null)
                 {
-                    MaxWidth = rectangles[i].Width;
-                    MaxWidthIndex = i;
+                    int length = int.Parse(lengthTextBox.Text);
+                    if (length <= 0 || length > 100)
+                    {
+                        throw new ArgumentOutOfRangeException();
+                    }
+                    _currentRectangle.Length = length;
+                    lengthTextBox.BackColor = AppColors.ValidatorTrueColor;
                 }
             }
-            return MaxWidthIndex;
+            catch (FormatException)
+            {
+                lengthTextBox.BackColor = AppColors.ValidatorFalseColor;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                lengthTextBox.BackColor = AppColors.ValidatorFalseColor;
+            }
         }
-
         /// <summary>
-        /// Метод для отображения в ЛистБоксе прямоугольника с наибольшей шириной.
+        /// Изменение и сохранение новой ширины прямоугольника с его валидацией.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonFind_Click(object sender, EventArgs e)
+        private void widthTextBox_TextChanged(object sender, EventArgs e)
         {
-            int RectangleMaxWidthIndex = FindRectangleWithMaxWidth(_rectangles);
-            listBoxRectangles.SelectedIndex = RectangleMaxWidthIndex;
-        }
-
-
-        /// <summary>
-        /// Изменение и сохранение значений ширины с их валидацией.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void textBoxWidth_TextChanged_1(object sender, EventArgs e)
-        {
-            int index = listBoxRectangles.Items.IndexOf(_currentRectangle);
             try
             {
-                textBoxWidth.BackColor = AppColors.StandartColor;
-                int width = int.Parse(textBoxWidth.Text);
-                _currentRectangle.Width = width;
+                if (_currentRectangle != null)
+                {
+                    int width = int.Parse(widthTextBox.Text);
+                    if (width <= 0 || width > 100)
+                    {
+                        throw new ArgumentOutOfRangeException();
+                    }
+                    _currentRectangle.Width = width;
+                    widthTextBox.BackColor = AppColors.ValidatorTrueColor;
+                }
             }
-            catch (Exception)
+            catch (FormatException)
             {
-                textBoxWidth.BackColor = AppColors.InvalidColor;
+                widthTextBox.BackColor = AppColors.ValidatorFalseColor;
             }
+            catch (ArgumentOutOfRangeException)
+            {
+                widthTextBox.BackColor = AppColors.ValidatorFalseColor;
+            }
+        }
+        /// <summary>
+        /// Изменение и сохранение нового цвета прямоугольника с его валидацией.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void colourTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string colour = colourTextBox.Text;
+                if (string.IsNullOrEmpty(colour))
+                {
+                    throw new ArgumentNullException();
+                }
+                foreach (char c in colour)
+                {
+                    if (char.IsDigit(c))
+                    {
+                        throw new ArgumentException();
+                    }
+                }
+                _currentRectangle.Colour = colour;
+                colourTextBox.BackColor = AppColors.ValidatorTrueColor;
+            }
+            catch (ArgumentNullException)
+            {
+                colourTextBox.BackColor = AppColors.ValidatorFalseColor;
+            }
+            catch (ArgumentException)
+            {
+                colourTextBox.BackColor = AppColors.ValidatorFalseColor;
+            }
+        }
+        /// <summary>
+        /// Осуществляет поиск прямоугольника с максимальной шириной.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rectangleButton_Click(object sender, EventArgs e)
+        {
+            RectanglesListBox.SelectedIndex = FindRectangleWithMaxWidth();
         }
     }
 }
