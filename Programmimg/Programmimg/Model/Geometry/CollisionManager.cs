@@ -1,63 +1,49 @@
+
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Programming.Model.Classes
+namespace Programming.Model
 {
-    public static class CollissionManager
+    /// <summary>
+    /// Хранит методы, которые проверяют пересечение фигур.
+    /// </summary>
+    internal static class CollisionManager
     {
         /// <summary>
-        /// Проверяет пересечение прямоугольников
+        /// Проверяет, пересекаются ли прямоугольники.
         /// </summary>
-        /// <param name="rectangle1"></param>
-        /// <param name="rectangle2"></param>
-        /// <returns></returns>
-        public static bool IsCollision(Rectangle rectangle1, Rectangle rectangle2)
+        /// <param name="rectangle1">Первый прямоугольник.</param>
+        /// <param name="rectangle2">Второй прямоугольник.</param>
+        /// <returns>Возвращает true, если пересекаются.</returns>
+        static public bool IsCollision(Rectangle rectangle1,  Rectangle rectangle2)
         {
-            bool result = false;
-
             //Расстояние между координатами.
-            int differenceX = Math.Abs(rectangle1.Center.coord_X - rectangle2.Center.coord_X);
-            int differenceY = Math.Abs(rectangle1.Center.coord_Y - rectangle2.Center.coord_Y);
-
-            //Сумма значений.
-            Double wideSumm = (rectangle1.Width + rectangle2.Width) / 2;
-            Double lengthSum = (rectangle1.Length + rectangle2.Length) / 2;
-
-            //Проверка на пересечение.
-            if (differenceX < wideSumm && differenceY < lengthSum)
-            {
-                result = true;
-            }
-            return result;
+            int differenceX = Math.Abs(rectangle1.Center.X - rectangle2.Center.X);
+            int differenceY = Math.Abs(rectangle1.Center.Y - rectangle2.Center.Y);
+            //Половины сторон.
+            double halfWidth = (rectangle1.Width + rectangle2.Width) / 2;
+            double halfLength = (rectangle1.Length + rectangle2.Length) / 2;
+            return differenceX < halfWidth && differenceY < halfLength;
         }
-
         /// <summary>
-        /// проверяет, пересекаются ли кольца.
+        /// Проверяет, пересекаются ли кольца.
         /// </summary>
-        /// <param name="ring1"></param>
-        /// <param name="ring2"></param>
-        /// <returns></returns>
-        public static bool IsCollision(Ring ring1, Ring ring2)
+        /// <param name="ring1">Первое кольцо.</param>
+        /// <param name="ring2">Второе кольцо.</param>
+        /// <returns>Возвращает true, если пересекаются.</returns>
+        static public bool IsCollision(Ring ring1, Ring ring2)
         {
-            bool result = false;
-
             //Расстояние между координатами.
-            int dX = Math.Abs(ring1.Center.coord_X - ring2.Center.coord_X);
-            int dY = Math.Abs(ring1.Center.coord_Y - ring2.Center.coord_Y);
-
-            //Расстояние между центрами.
-            Double distance = Math.Pow(((dX * dX) + (dY * dY)), 0.5);
-
-            //Проверка на пересечение.
-            if (distance < (ring1.OuterRadius + ring2.OuterRadius))
-            {
-                result = true;
-            }
-            return result;
+            double differenceX = Math.Abs(ring1.Center.X - ring2 .Center.X);
+            double differenceY = Math.Abs(ring1.Center.Y - ring2 .Center.Y);
+            //Гипотенуза.
+            double hypothesis = Math.Sqrt(differenceY * differenceY + differenceX * differenceX);
+            //Сумма внешних радиусов.
+            double sumRadiuses = ring1.OuterRadius + ring2.OuterRadius;
+            return hypothesis < sumRadiuses;
         }
-
     }
 }
